@@ -1,14 +1,16 @@
 
+var path=require('path')
+require('dotenv').config({ path:path.join(__dirname,'..','.env'), override:true })
 var Sequelize=require('sequelize')
 
 var sequelize=new Sequelize(
     process.env.DB_NAME || 'revenue',
     process.env.DB_USER || 'root',
-    process.env.DB_PASSWORD || '',
+    process.env.DB_PASSWORD,
 {
-    host:process.env.DB_HOST || 'localhost',
+    host:'localhost',
     dialect:'mysql',
-    port:process.env.DB_PORT || 3306,
+    port:3306,
     define:{
         timestamps:false
     }

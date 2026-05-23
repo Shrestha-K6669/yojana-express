@@ -3,6 +3,7 @@
   <a href="/">Home</a>
   <% if (currentUser) { %>
     <a href="/admin">Admin</a>
+    <a href="/y">Yojana Dashboard</a>
     <% if (currentUser.role === 'admin') { %>
       <a href="/users">Users</a>
     <% } %>
@@ -14,7 +15,6 @@
     <a href="/loginForm">Login</a>
   <% } %>
   <a href="/laws">Laws of KPLRM</a>
-  <a href="/y">yojana  Index</a>
   <a href="#">Services</a>
   <a href="#">Clients</a>
   <a href="#">Contact</a>
