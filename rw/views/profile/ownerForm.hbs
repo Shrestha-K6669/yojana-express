@@ -1,0 +1,27 @@
+<div id="owner" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-padding w3-red">
+       <span onclick="document.getElementById('id01').style.display='none'"
+       class="w3-button w3-red w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+      <h2>Owner's Profile entry form</h2>
+    </div>
+    <form enctype="multipart/form-data" action="/addInbox" method="post">
+      <div class="w3-panel">
+        <label>Date of mail:</label>
+         <input type="datetime-local" name="date_begin">
+      <label> From/To</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="from_to">
+      <label>Subject</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="subject">
+      <label>files</label>
+      <input type="file" name="file1" multiple>
+      <input class="w3-input w3-border w3-margin-bottom" style="height:150px" placeholder="mail body..." name="misc">
+      <input type="submit" value="Submit">
+      <div class="w3-section">
+       
+        <a class="w3-button w3-light-grey w3-right" onclick="document.getElementById('id02').style.display='none'">close <i class="fa fa-remove"></i></a> 
+      </div>     
+    </div>
+    </form>
+  </div>
+</div>

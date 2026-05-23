@@ -1,0 +1,62 @@
+<form action="" method="post">
+    <div class="col">
+        <div class="row">
+            <div class="left"><label for="house_id">House number</label></div>
+            <div class="forminput"><input type="hidden" name="house_id"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="name">Name(नामः)</label></div>
+            <div class="forminput"><input type="text" class="input" name="name" id="name"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="ctz">Citizenship Number (नागरिकता नंः)</label></div>
+            <div class="forminput"><input type="text" class="input" name="ctz" id="ctz"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="phone">Phone(फोन नं)</label></div>
+            <div class="forminput"><input type="text" class="input" name="phone" id="phone"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="email">Email(इमेल):</label></div>
+        <div class="forminput"><input type="email" class="input" name="email" id="email"></div>
+        </div>
+        <!-- documents  -->
+        <div class="row">
+            <div class="left"><label for="document1">Document1(दस्तावेज १)</label></div>
+            <div class="forminput"><input type="file" class="input" name="document1" id="document1"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="document2">Document2(दस्तावेज 2)</label></div>
+            <div class="forminput"><input type="file" class="input" name="document2" id="document2"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="document3">Document3(दस्तावेज 3)</label></div>
+            <div class="forminput"><input type="file" class="input" name="document3" id="document3"></div>
+        </div>
+<!-- documents  -->
+  <div class="row">
+    <div class="left"><label for="profile image"> Profile Image(प्रोफाइल फोटोः)</label></div>
+    <div class="forminput"><input type="file" class="input" name="profileimg" id="profileimg"></div>
+  </div>
+  <div class="row"><div class="forminput">
+    <button type="submit" class="input">+</button>
+  </div></div>
+    </div>
+</form>
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

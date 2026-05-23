@@ -1,0 +1,103 @@
+<div class="col-6 col-ss-9">
+    <div class="r1"> <div class="nametb"><%= data.name %> </div> , <%= data.office_address%>,
+    <%= data.tole %> पूर्वी सिमानाः <%= data.boundary_east%>, पश्चिम सिमानाः <%= data.boundary_west %>
+    उत्तरी सिमानाः <%= data.boundary_north %>, र दक्षिण सिमानाः <%= data.boundary_south %> भएको,
+    प्यान नं <%= data.pan_num %>, बैक खाताः <%= data.account_num%> विवरण भएको खुम्बु पासाङल्हामु गाउँपालिका क्षेत्र भित्रको
+    लाभग्राही सँस्थाको विवरण भर्नुहोस्ः
+    </div>
+    tbid: <%= data._id %>
+    <div class="ch">
+      <Button><a href="/addTBRec/<%= data._id %>">Back to ToleBikas Dashboard..</a></Button>
+      </div>
+    <div class="member">
+        <p style="color: red;"> विवरण भरिसकिएका लाभग्राही सँस्थाको अनुगमन समितिको सदस्य विवरण</p>
+            <table>
+            <tr>
+                <th class="h">S.N</th>
+                <th class="h">Name</th>
+                <th class="h">Designation</th>
+                <th class="h">Citizenship number</th>
+                <th class="h">Edit</th>
+                <th class="h"> Delete</th>
+                   </tr>
+                  <% var i=0;
+              members.forEach(function (e) { i++;  %>
+              
+              <tr>
+                <td class="td1"><span class="t"><%= i %></span></td>
+                <td class="td2"> <span class="t"><%= e.name %></span></td>
+                <td class="td3"><span class="t"><%= e.designation %></span></td>
+                <td class="td4"><span class="t"><%= e.ctz %></span></td>
+                <td class="td5"><span class="t"><Button onclick="window.location.href='/tbeceditform/<%= e._id%>';">Edit</Button></span></td>
+                <td class="td6"> <span class="t"><form action="/delTBEC" method="post">
+                    <input type="hidden" name="id" value="<%= e._id %>">
+                    <input type="hidden" name="tolebks_id" value="<%= e.tolebks_id %>">
+                    <button type="submit"> Delete</button>
+                    </form></span></td>
+                </tr>
+              <% })%>
+        </table>
+    </div>
+    </div>
+    <br><p style="color:blue">लाभग्राही सँस्था अनुगमन समितिका पदाधिकारी फाराम </p>
+<form action="/addTBEC" method="post">
+    <div class="col">
+        <input type="hidden" name="tolebks_id" id="tolebks_id" value="<%= data._id %>">
+                
+        <div class="row">
+            <div class="left"><label for="name"> Name(नाम, थर)</label></div>
+            <div class="forminput">
+                <input type="text" class="input" name="name" id="name">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="left"><label for="designation"> Designation (पद)</label></div>
+            <div class="forminput">
+                <input type="text" class="input" name="designation" id="designation">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="left"><label for="contact">Contact(सम्पर्क नं)</label></div>
+            <div class="forminput">
+                <input type="text" class="input" name="contact" id="contact">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="left"><label for="email">Email(इमेल)</label></div>
+            <div class="forminput">
+                <input type="text" class="input" name="email" id="email">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="left"><label for="ctz">Citizenship(नागरिकता नं)</label></div>
+            <div class="forminput">
+                <input type="text" class="input" name="ctz" id="ctz">
+            </div>
+        </div>
+        
+          <div class="forminput">
+            <button class="input" type="submit">+</button>
+        </div>
+    </div>
+</form>
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

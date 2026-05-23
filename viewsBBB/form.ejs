@@ -1,0 +1,79 @@
+<div>
+    <div id="idLawType" class="w3-modal" style="z-index:4">
+        <div class="w3-modal-content w3-animate-zoom">
+          <div class="w3-container w3-padding w3-teal">
+             <span onclick="document.getElementById('idLawType').style.display='none'"
+             class="w3-button w3-teal w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+            <h2>Law Type entry form</h2>
+          </div>
+          
+      <form action="/addLawType" method="post">
+            <div class="w3-panel">
+            <label>Law Type Name</label>
+            <input class="w3-input w3-border w3-margin-bottom" type="text" name="name">
+            <input type="submit" value="+">
+            
+          </div>
+          </form>
+        </div>
+      </div>
+      <!-- 
+        house form
+      -->
+      <div id="idLawForm" class="w3-modal" style="z-index:4">
+        <div class="w3-modal-content w3-animate-zoom">
+          <div class="w3-container w3-padding w3-teal">
+             <span onclick="document.getElementById('idLawForm').style.display='none'"
+             class="w3-button w3-teal w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+            <h2>Law File Entry form</h2>
+          </div>
+          
+      <form action="/addLaw" method="post" enctype="multipart/form-data">
+            <div class="w3-panel">
+            <label>Law Type:</label>
+            <select class="w3-input w3-border w3-margin-bottom" name="kanun_type" id="kanun_type">
+            <option>----</option>       
+        <% law_types.forEach(function(el){ %>
+        <option class="w3-input w3-border w3-margin-bottom" value="<%= el._id %>"><%= el.name %></option>
+        <% }) %>
+        
+      </select>
+      <label>Name:</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="name">
+      <label>File Pdf:</label>
+            <input class="w3-input w3-border w3-margin-bottom" type="file" name="k_file_pdf">
+            <label>File Word:</label>
+            <input class="w3-input w3-border w3-margin-bottom" type="file" name="k_file_word">
+            <input type="submit" value="+">
+            
+          </div>
+          </form>
+        </div>
+      </div>
+<!-- 
+  house form
+-->
+
+<!-- -->
+<div id="idLawTest" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-padding w3-teal">
+       <span onclick="document.getElementById('idLawTest').style.display='none'"
+       class="w3-button w3-teal w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+      <h2>Law Type entry form</h2>
+    </div>
+    
+<form action="/lawsPage" method="post">
+      <div class="w3-panel">
+      <label>page test</label>
+      <input type="hidden" name="page" id="page" value="2">
+      <input type="submit" value="+">
+      
+    </div>
+    </form>
+  </div>
+</div>
+
+<!--  -->
+    <%- body %>
+    </div>

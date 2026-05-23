@@ -1,0 +1,41 @@
+<script>
+     /*
+  $(document).on("pagecreate",".content",function(){
+  }); */
+/*for mobile */
+
+$(".d1").on("swipeleft",function(){ showPrev(); }); $(".d1").on("swiperight",function(){ showNext(); });
+$(".d2").on("swipeleft",function(){ showPrev2(); }); $(".d2").on("swiperight",function(){ showNext2(); });
+// for mob end
+  var visibleDiv=0;
+  function showDiv(){ $(".d1").hide(); $(".d1:eq("+visibleDiv+")").show(); } showDiv();
+  function showPrev(){ if (visibleDiv==0) { visibleDiv=$(".d1").length-1; }else{ visibleDiv--; } showDiv(); }
+function showNext(){
+  if (visibleDiv==$(".d1").length-1) { visibleDiv=0; }else{ visibleDiv++; } showDiv();}
+/* next div*/
+$(".d1").on("swipeleft",function(){showPrev(); }); $(".d1").on("swiperight",function(){ showNext(); });
+// for mob end
+  var visibleDiv2=0;
+  function showDiv2(){ $(".d2").hide(); $(".d2:eq("+visibleDiv2+")").show();} showDiv2();
+function showPrev2(){
+if (visibleDiv2==0) { visibleDiv2=$(".d2").length-1; }else{ visibleDiv2--; } showDiv2(); }
+function showNext2(){
+  if (visibleDiv2==$(".d2").length-1) {  visibleDiv2=0;  }else{ visibleDiv2++; } 
+}
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+/* next */
+function openNav1() {
+  document.getElementById("mySidenav1").style.width = "250px";
+}
+function closeNav1() {
+ document.getElementById("mySidenav1").style.width = "0";
+}
+
+
+</script>
+  <p>copy right &copy Pragmatic Solutions Pvt. Ltd.</p>

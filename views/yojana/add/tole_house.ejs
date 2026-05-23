@@ -1,0 +1,40 @@
+<form action="" method="post">
+    <div class="col">
+        <div class="row">
+            <div class="left"><label for="tolebikas">Tole Bikas Name(टोल विकासको नाम)</label></div>
+            <div class="forminput"><input type="hidden" name="tbs_id" id="tbs_id"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="house number">House Number(घर नंः)</label></div>
+            <div class="forminput"><input type="text" class="input" name="house_num" id="house_num"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="ownerName">Owner Name(घर धनीको नामः)</label></div>
+            <div class="forminput"><input type="text" class="input" name="owner_name" id="owner_name"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="description">Description(विवरणः)</label></div>
+            <div class="forminput"><input  type="text" class="input" name="description" id="description"></div>
+        </div>
+        <div class="row">
+            <div class="forminput"><button class="input" type="submit">+</button></div>
+        </div>
+    </div>
+</form>
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

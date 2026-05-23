@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include('../common/header') %>
+</head>
+<body>
+  <div id="mySidenav" class="sidenav">
+    <%- include('../common/nav') %>
+  </div>
+
+  <div class="header">
+    <%- include('../common/headerImg') %>
+  </div>
+
+  <div class="row">
+    <div class="col-3 col-s-3 menu">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;open</span>
+    </div>
+  </div>
+
+  <main class="admin-page">
+    <div class="admin-toolbar">
+      <h1>User Management</h1>
+      <a class="button-link" href="/users/new">Add User</a>
+    </div>
+
+    <% if (message) { %>
+      <p class="admin-message"><%= message %></p>
+    <% } %>
+
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Last Login</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(function(user) { %>
+          <tr>
+            <td><%= user.firstname %> <%= user.lastname %></td>
+            <td><%= user.email %></td>
+            <td><%= user.role %></td>
+            <td><%= user.is_active ? 'Active' : 'Disabled' %></td>
+            <td><%= user.last_login ? user.last_login.toLocaleString() : '-' %></td>
+            <td class="actions">
+              <a href="/users/<%= user._id %>/edit">Edit</a>
+              <% if (!currentUser || currentUser.id !== user._id) { %>
+                <form action="/users/<%= user._id %>/delete" method="post">
+                  <button type="submit" onclick="return confirm('Delete this user?')">Delete</button>
+                </form>
+              <% } %>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </main>
+
+  <div class="footer">
+    <%- include('../common/footer') %>
+  </div>
+
+  <style>
+    .admin-page { max-width: 1080px; margin: 30px auto 80px; padding: 0 16px; }
+    .admin-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .admin-toolbar h1 { margin: 0; font-size: 28px; }
+    .button-link { padding: 10px 14px; background: #1f7a4d; color: #fff; border-radius: 4px; text-decoration: none; }
+    .admin-message { padding: 10px 12px; background: #eef8f0; border: 1px solid #a8d8b4; border-radius: 4px; }
+    .user-table { width: 100%; border-collapse: collapse; margin-top: 18px; background: #fff; }
+    .user-table th, .user-table td { border: 1px solid #d8dee4; padding: 10px; text-align: left; }
+    .user-table th { background: #f2f5f7; }
+    .actions { display: flex; align-items: center; gap: 10px; }
+    .actions form { margin: 0; }
+    .actions button { border: 0; background: #b42318; color: #fff; padding: 7px 10px; border-radius: 4px; cursor: pointer; }
+  </style>
+</body>
+</html>

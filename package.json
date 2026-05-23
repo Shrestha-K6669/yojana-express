@@ -1,0 +1,41 @@
+{
+  "name": "mixed server ejs for revenue, yojana, kanun and more..",
+  "version": "1.0.0",
+  "description": "mixed server for development and testing of the ejs server with script.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "andrs Shree1",
+  "license": "ISC",
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.6",
+    "@chakra-ui/react": "^2.2.6",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "bcrypt": "^6.0.0",
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.4.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-handlebars": "^6.0.6",
+    "framer-motion": "^7.0.1",
+    "jsonwebtoken": "^9.0.3",
+    "moment": "^2.29.4",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "path": "^0.12.7",
+    "qrcode": "^1.5.3",
+    "sequelize": "^6.20.1",
+    "sequelize-auto": "^0.8.8",
+    "uuid": "^8.3.2",
+    "web-push": "^3.5.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.1"
+  }
+}

@@ -1,0 +1,82 @@
+
+<div class="noprint">
+  <button onclick="window.location.href='/projectIndex/<%= proj_id %>'; ">Return Back to Project Dashboard.</button>
+</div> <br>
+<form action="/addProjBenef" method="post">
+    <div class="col">
+    <input type="hidden" name="proj_id" value="<%= proj_id %>" id="proj_id">
+    <p> Proj ID::<%= proj_id%></p>
+  <div class="row">
+    <div class="left"><label for="houses">Houses(घरधुरी)</label></div>
+    <div class="forminput"><input type="number" class="input" name="houses" id="houses"></div>
+  </div>
+  <div class="row">
+    <div class="left"><label for="houses">Houses Janajati(घरधुरी)</label></div>
+    <div class="forminput"><input type="number" class="input" name="house_j" id="house_j"></div>
+  </div>
+  <div class="row">
+    <div class="left"><label for="houses">Houses Dalit(घरधुरी)</label></div>
+    <div class="forminput"><input type="number" class="input" name="house_d" id="house_d"></div>
+  </div>
+  <div class="row">
+    <div class="left"><label for="houses">Houses Other(घरधुरी)</label></div>
+    <div class="forminput"><input type="number" class="input" name="house_o" id="house_o"></div>
+  </div>
+  <div class="row">
+    <div class="left"><label for="male-total">No: of Males (पुरस):</label></div>
+    <div class="forminput"><input type="number" class="input" name="male" id="male"></div>
+  </div>
+  <div class="row">
+    <div class="left"><label for="female-total">No: of Females (महिला):</label></div>
+    <div class="forminput"><input type="number" class="input" name="female" id="female"></div>
+  </div>
+  <b> Janajati (जनजाति)</b>
+  <div class="row">
+    <div class="left"><label for="male-total">No: of Males (पुरस):</label></div>
+    <div class="forminput"><input type="number" class="input" name="janajati_m" id="janajati_m"></div>
+  </div>
+  <div class="row">
+    <div class="left"><label for="female-total">No: of Females (महिला):</label></div>
+    <div class="forminput"><input type="number" class="input" name="janajati_f" id="janajati_f"></div>
+  </div>
+  <b>Dalit(दलित)</b>
+  <div class="row">
+    <div class="left"><label for="male-total">No: of Males (पुरस):</label></div>
+    <div class="forminput"><input type="number" class="input" name="dalit_m" id="dalit_m"></div>
+  </div>
+  <div class="row">
+    <div class="left"><label for="female-total">No: of Females (महिला):</label></div>
+    <div class="forminput"><input type="number" class="input" name="dalit_f" id="dalit_f"></div>
+  </div>
+  <b>Other(अन्य)</b>
+  <div class="row">
+    <div class="left"><label for="male-total">No: of Males (पुरस):</label></div>
+    <div class="forminput"><input type="number" class="input" name="other_m" id="other_m"></div>
+  </div>
+  <div class="row">
+    <div class="left"><label for="female-total">No: of Females (महिला):</label></div>
+    <div class="forminput"><input type="number" class="input" name="other_f" id="other_f"></div>
+  </div>
+  <div class="row">
+    <div class="forminput"><button type="submit" class="input">+</button></div>
+  </div>
+    </div>
+</form>
+
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

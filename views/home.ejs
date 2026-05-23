@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<%- include('./common/header')  %>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn1" onclick="closeNav()">Close Menu &times;</a>
+<a href="/admin">Law Portal Admin Login</a>
+<a href="/lawsGen">Laws of KPLRM</a>
+<a href="/y">yojana  Index</a>
+</div>
+
+<div class="header">
+  <%- include('./common/headerImg')  %>
+</div>
+
+<div class="row">
+  <div class="col-3 col-s-3 menu">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;open</span>
+  </div>
+
+<!-- de activated 
+  <div class="col-3 col-s-12">
+    <div class="aside">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav1()"> &#9776;open</span>
+      </div>
+  </div> -->
+</div>
+<%- include('./common/bodyNav') %>
+<br>
+  <br><br><br>
+<div class="footer">
+  <%- include('./common/footer')  %>
+</div>
+
+</body>
+</html>

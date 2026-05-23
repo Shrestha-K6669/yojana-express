@@ -1,0 +1,114 @@
+<div> <p> लाभग्राही विवरण अपडेट गर्नुहोस्</p></div>
+<form action="/updateTB" method="post">
+    <!--  tolebikas form -->
+    <input type="hidden" name="id" value="<%= data._id %>">
+<div class="col">
+    <div class="row">
+        <div class="left"><label for="account_num">Name of Tole Bikas Sanstha(नाम)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="name" id="name" value="<%= data.name %>">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="account_num">Ward Number(वडा नं )</label> </div>
+        <div class="forminput">
+            <input type="number" class="input" name="ward_num" value="<%= data.ward_num %>" id="ward_num">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="tole">Tole(टोल)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="tole" value="<%= data.tole%>" id="tole">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="account_num"> East Boundary (पूर्व)</label> </div>
+        <% if(data.boundary_east){ %>
+        <div class="forminput">
+            <input type="text" class="input" name="boundary_east" value="<%= data.boundary_east %>" id="boundary_east">
+        </div>
+        <%} %>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="boundary">Boundary West(पश्चिम)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="boundary_west" value="<%= data.boundary_west %>" id="boundary_west">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="boundary">Boundary North(उत्तर)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="boundary_north" value="<%= data.boundary_north%>" id="boundary_north">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="boundary">Boundary South(दक्षिण)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="boundary_south" value="<%= data.boundary_south%>" id="boundary_south">
+        </div></div>
+    
+    <div class="row">
+        <div class="left"><label for="address">Office Address(कार्यालयको ठेगानाः)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="office_address" value="<%= data.office_address%>" id="office_address">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="co-ord">Co-Ordinate(Lat))</label> </div>
+        <% if(data.co_ordinate) { %>
+        <div class="forminput">
+            <input type="text" class="input" name="co_ord_x" value="<%= data.co_ordinate.x %>"  id="co_ord_x">
+        </div>
+        <% } %>
+    </div>
+    <div class="row">
+        <div class="left"><label for="co-ord">Co-Ordinate(Long))</label> </div>
+        <% if(data.co_ordinate) { %>
+        <div class="forminput">
+            <input type="text" class="input" name="co_ord_y" value="<%= data.co_ordinate.y %>" id="co_ord_y">
+        </div>
+        <% } %>
+    </div>
+    <div class="row">
+        <div class="left"><label for="pan_num">PAN Number(प्यान नं)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="pan_num" id="pan_num" value="<%= data.pan_num%>">
+        </div>
+    </div>
+    <div class="row">
+        <div class="left"><label for="account_num">Account Number(बैंक खाता नं)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="account_num" value="<%= data.account_num%>" id="account_num">
+        </div>
+    </div>
+       <div class="forminput">
+        <button class="input" type="submit">+</button>
+    </div>
+</div>
+
+</form>
+
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

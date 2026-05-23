@@ -1,0 +1,8 @@
+install web push
+npm install web-push --save
+web-push generate-vapid-keys
+
+setVaipKey function
+subscribe function
+
+can subscribe through route/controller

@@ -1,0 +1,401 @@
+<html>
+<body lang="EN-US" link="blue" vlink="purple">
+<div class="main-content">
+    <div class="head">
+        <div><img width="83" height="75" src="http://103.69.125.247:3000/img/npl.jpg" alt=""></div>
+       <div><span  class="pt16">खुम्बु पासाङल्हामु गाउँपालिका</span><br>
+        <span  class="pt14">गाउँ कार्यपालिकाको कार्यालय</span><br>
+        <span>कोशी प्रदेश, चौंरीखर्क, सोलुखुम्बु</span>
+     </div>
+   <div><img width="83" height="75" src="http://103.69.125.247:3000/img/khumbu.png"></div>
+    </div>
+
+<style>
+.head{
+    display: flex;
+    flex-direction: row;
+    margin-left:25%;
+}
+.head div {
+    margin: 5px;
+}
+
+    table, td, th {
+  border: 1px solid black;  margin: 3px;
+}
+table {
+  border-collapse: collapse; width: 100%; text-align: center;
+}
+    .body{
+        font-family: Arial Unicode MS;
+    }
+    .MsoNormal{ margin-bottom:0in; margin-bottom: .0001pt; text-align:center;line-height:normal }
+    .span1{
+        font-size:10.0pt; font-family:Arial Unicode MS;
+    }
+    .ys{font-size:20.0pt;line-height:115%;font-family:Arial Unicode MS;}
+    .pt12{
+        font-size:12.0pt;line-height:115%;font-family:Arial Unicode MS;
+    }
+    .pt14{
+        font-size:14.0pt;line-height:115%;font-family:Arial Unicode MS;
+    }
+    .pt16{
+        font-size: 16.0pt;line-height:115%;
+    }
+    .MsoTableGrid{
+border-collapse:collapse;border-style:solid; border-width:1px;        }
+        .table{
+            border-style: solid; border-collapse:collapse; border-width: 1px;
+        }
+        .Ms{
+            font-size: 14px;line-height: 112%;
+        }
+        .MsoNormal1{
+            font-size: 14px; line-height: 112%;
+        }
+        </style>
+   <div class="noprint">
+    <button onclick="window.location.href='/projectIndex/<%= project._id %>'; ">Return Back to Project Dashboard.</button>
+</div>     
+<p class="MsoNormal" align="center"><b><span  class="ys"> सम्झौता</span></b></p>
+<p class="MsoNormal" align="center"><b><span  class="pt14">आ.व ०८०/८१</span></b></p>
+<p class="M"><b><span  class="pt12" >१.योजना सम्झौता फाराम</span></b></p>
+<p class="ms"><b><span  class="pt12" ">क. सम्झौता हुने योजनाहरुः</span></b></p>
+
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0">
+ <tbody><tr>
+  <td width="324" valign="top"><p class="MsoNormal"><b><u><span>आयोजनाको  नाम</span></u></b></p></td>
+  <td width="324" valign="top"> <p class="MsoNormal"><b><u><span >आयोजना स्थल</span></u></b></p></td>
+ </tr>
+     <tr>
+  <td width="324" valign="top"><p class="MsoNormal"><span >1. </span>
+    <span><%= project.project_name %></span></p> </td>
+  <td width="324" valign="top"><p class="MsoNormal"><span ><%= project.project_address %></span></p></td>
+ </tr>
+ 
+ 
+</tbody></table>
+
+<p class="ms" ><b><span >ख. </span></b><b><span>आयोजना सम्बन्धी विवरण</span></b></p>
+
+1. 1 &nbsp; <%= project.project_name %>
+    <table>
+    <tr>
+    <td colspan="3"> <div class="tbl"> आयोजनाको नामः &nbsp;&nbsp; <%= project.project_name %> </div></td>
+    </tr>
+    <tr>
+    <td colspan="3"><div class="tbl">आयोजना स्थलः &nbsp; <%= project.project_address %></div></td>
+    </tr>
+    <tr>
+    <td colspan="3"><div class="tbl">उद्देश्यः &nbsp; <%= project.aim %></div></td>
+    </tr>
+    <tr><td><div class="tbl">आयोजना शुरु मितिः &nbsp; <%= project.start_date %> </div></td>
+    <td> <div class="tbl">आयोजना सम्पन्न हुने मितिः &nbsp; <%= project.end_date %> </div></td>
+    <td> <div class="tbl">सम्झौता मितिः &nbsp; <%= project.agreement_date%></div></td>
+    </tr>
+    <tr> <td> <div class="tbl">लागत अनुमानः  &nbsp; NRs:<%= project.allocated_budget+project.beneficiary_contrib %> </div></td>
+     <td> <div class="tbl"> लाभग्राही समूदायको श्रमदानः &nbsp; NRs: <%= project.beneficiary_contrib%></div></td>
+     <td> <div class="tbl"> गाउँपालिकाको लागतः &nbsp; NRs: <%= project.allocated_budget %></div></td>
+     </tr>
+    <tr> 
+        <td> <div class="tbl"> अन्य सहभागिताः &nbsp; </div></td>
+    <td><div class="tbl">आयोजनाको जम्मा लागत &nbsp;NRs: <%= project.allocated_budget+project.beneficiary_contrib %></div></td></tr>
+
+</table>  
+ <br>
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr>
+  <td width="509" colspan="8" valign="top"><p class="MsoNormal"><b><span>आयोजनाबाट लाभान्वित हुने:</span></b></p></td>
+  </tr>
+ <tr>
+  <td width="139" colspan="2" valign="top"> <p class="MsoNormal" ><span>दलित</span></p></td>
+  <td width="118" colspan="2" valign="top"> <p class="MsoNormal" ><span>जनजाति</span></p> </td>
+  <td width="124" colspan="2" valign="top"><p class="MsoNormal"><span>अन्य</span></p></td>
+  <td width="128" colspan="2" valign="top"> <p class="MsoNormal" align="center"><span>जम्मा</span></p></td>
+   </tr>
+ <tr>
+  <td width="139" colspan="2" valign="top"> <p class="MsoNormal"><span>घरधुरी सँख्याः</span></p> </td>
+  <td width="118" colspan="2" valign="top"><p class="MsoNormal"><span>घरधुरी सँख्याः </span></p></td>
+  <td width="124" colspan="2" valign="top"><p class="MsoNormal"><span>घरधुरी सँख्याः</span></p></td>
+  <td width="128" colspan="2" valign="top"><p class="MsoNormal"><span>घरधुरी सँख्याः</span><span> </span><span>80</span></p></td>
+ </tr>
+ <tr>
+  <td width="49" valign="top"><p class="MsoNormal"><span>महिला</span></p></td>
+  <td width="90" valign="top"><p class="MsoNormal"><span>पुरुष</span></p></td>
+  <td width="60" valign="top"><p class="MsoNormal"><span>महिला</span></p></td>
+  <td width="58" valign="top"><p class="MsoNormal"><span>पुरुष</span></p></td>
+  <td width="63" valign="top"><p class="MsoNormal"><span>महिला</span></p></td>
+  <td width="61" valign="top"><p class="MsoNormal"><span>पुरुष</span></p></td>
+  <td width="64" valign="top"><p class="MsoNormal"><span>महिला</span></p></td>
+  <td width="63" valign="top"><p class="MsoNormal"><span>पुरुष</span></p></td>
+  </tr>
+ <tr>
+    
+  <td width="49" valign="top"><p class="MsoNormal"><span>&nbsp;<%= proj_beneficiary.dalit_f %></span></p></td>
+  <td width="90" valign="top"><p class="MsoNormal"><span>&nbsp;<%= proj_beneficiary.dalit_m %></span></p></td>
+  <td width="60" valign="top"><p class="MsoNormal"><span>&nbsp; <%= proj_beneficiary.janajati_f %></span></p></td>
+  <td width="58" valign="top"><p class="MsoNormal"><span>&nbsp;<%= proj_beneficiary.janajati_m %></span></p></td>
+  <td width="63" valign="top"><p class="MsoNormal"><span>&nbsp;<%= proj_beneficiary.other_f?proj_beneficiary.other_f:' ' %></span></p></td>
+  <td width="61" valign="top"><p class="MsoNormal"><span>&nbsp;<%= proj_beneficiary.other_f?proj_beneficiary.other_f:' ' %></span></p></td>
+  <td width="64" valign="top"><p class="MsoNormal"><span>&nbsp;
+    
+        <span><%=proj_beneficiary.dalit_f+proj_beneficiary.janajati_f+proj_beneficiary.other_f %></span>
+        </span></p></td>
+  <td width="63" valign="top"><p class="MsoNormal"><span>&nbsp;
+    
+    <span><%=proj_beneficiary.dalit_f+proj_beneficiary.janajati_f+proj_beneficiary.other_f %></span>
+     </span></p></td>
+  </tr>
+</tbody></table>
+
+<br>
+<table>
+    <tr>
+        <td width="649" colspan="10" valign="top"><p class="MsoNormal"><b><span>बस्तुगत अनुदानको विवरण</span></b></p></td>
+       </tr>
+       <tr>
+        <td width="49" valign="top"><p class="MsoNormal"><span>क्र.स</span></p></td>
+        <td width="98" valign="top"><p class="MsoNormal"><span >सामाग्रीको नाम</span></p></td>
+        <td width="52" valign="top"><p class="MsoNormal"><span>एकाई</span></p></td>
+        <td width="58" valign="top"><p class="MsoNormal"><span >संघ बाट</span></p></td>
+        <td width="63" valign="top"><p class="MsoNormal"><span>प्रदेश बाट</span></p></td>
+        <td width="61" valign="top"> <p class="MsoNormal" ><span >स्थानीय तह बाट</span></p></td>
+        <td width="64" valign="top"><p class="MsoNormal"><span>गैह्र सरकारी सँघ संस्था बाट</span></p></td>
+        <td width="63" valign="top"><p class="MsoNormal"><span>विदेशी दातृ संघ संस्थाबाट</span></p> </td>
+        <td width="71" valign="top"><p class="MsoNormal"><span>लाभग्राही समुदायबाट</span></p></td>
+        <td width="68" valign="top"><p class="MsoNormal"><span>अन्य निकायबाट</span></p></td>
+       </tr>
+       <tr>
+        <td width="49" valign="top"><p class="MsoNormal"><span>&nbsp;</span></p></td>
+        <td width="98" valign="top"><p class="MsoNormal"><span>&nbsp;</span></p></td>
+        <td width="52" valign="top"><p class="MsoNormal"><span>&nbsp;</span></p></td>
+        <td width="58" valign="top"><p class="MsoNormal"><span>&nbsp;</span></p></td>
+        <td width="63" valign="top"><p class="MsoNormal"><span>&nbsp;</span></p></td>
+        <td width="61" valign="top"><p class="MsoNormal"><span>&nbsp;</span></p></td>
+        <td width="64" valign="top"><p class="MsoNormal"><span>&nbsp;</span></p></td>
+        <td width="63" valign="top"><p class="MsoNormal"><b><span>&nbsp;</span></b></p></td>
+        <td width="71" valign="top"><p class="MsoNormal"><b><span>&nbsp;</span></b></p></td>
+        <td width="68" valign="top"><p class="MsoNormal"><b><span>&nbsp;</span></b></p></td>
+       </tr>
+</table>
+
+<p class="Ms" ><span >&nbsp;</span></p>
+<p class="Ms"><b><span>२.लाभग्राही समुदाय/समुदायमा आधारित संस्था/गैह्रसरकारी संस्थाको विवरण:</span></b></p>
+<p class="Ms"><span>लाभग्राही समुदाय</span><span>/<span >सँस्थाको नामः </span></span><b><span><%= tolebikas.name %></span></b></p>
+<p class="Ms"><span>ठेगानाः </span><span><%= tolebikas.office_address %></span></p>
+<p class="Ms"><b><span>&nbsp;</span></b></p>
+
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0">
+ <tbody><tr>
+  <td width="216" valign="top">
+  <p class="MsoNormal"><b><span>क) गठन भएको मिति: </span></b><b><span></span></b></p>
+  </td>
+  <td width="366" valign="top">
+  <p class="MsoNormal"><b><span>ख)  गठन गर्दा उपस्थित लाभान्वितको संख्या: </span></b><b><span></span></b></p>
+  </td>
+ </tr>
+ <tr> <td> &nbsp;</td> <td> &nbsp; </td> </tr>
+</tbody></table>
+
+<p class="MsoNormal"><b><span>&nbsp;</span></b></p>
+
+<p class="Ms"><b><span> 3. लाभग्राही समुदाय/सँस्थाको पदाधिकारीको विवरण</span></b></p>
+
+<table>
+<tr>
+<th>क्र.स</th>
+<th>पदाधिकारीको नामः</th>
+<th>नागरिकता नं</th>
+<th>पदः</th>
+<th>सम्पर्क नम्बर</th>
+<th>इमेल ठेगानाः</th>
+    </tr>
+    <% var i=0;
+    members.forEach( function(e){ i++; %>
+<tr> <td> <%= i %></td>
+    <td> <div class="elm"><%= e.name %></div></td>
+    <td> <div class="elm"><%= e.ctz %></div></td>
+    <td> <div class="elm"><%= e.designation%></div></td>
+    <td> <div class="elm"><%= e.contact %></div></td>
+    <td> <div class="elm"><%= e.email %></div></td>
+</tr>
+   <% })%>
+</table>
+
+<p class="MsoNormal"  ><b><span >&nbsp;</span></b></p>
+<p class="Ms"><b><span   >4. </span></b><b><span  >) <span >अनुगमन समितिको विवरण&nbsp;&nbsp;&nbsp;&nbsp;</span></span></b></p>
+
+<table>
+<tr>
+<th>क्र.स</th> <th>पदाधिकारीको नामः</th>
+<th>नागरिकता नं</th> <th>पदः</th>
+<th>सम्पर्क नम्बर</th> <th>इमेल ठेगानाः</th>
+    </tr>
+    <% var i=0;
+    anugamansamiti.forEach( function(e){ i++ %>
+<tr> <td> <%= i %></td>
+    <td> <div class="elm"><%= e.name %></div></td>
+    <td> <div class="elm"><%= e.ctz %></div></td>
+    <td> <div class="elm"><%= e.designation%></div></td>
+    <td> <div class="elm"><%= e.contact %></div></td>
+    <td> <div class="elm"><%= e.email %></div></td>
+</tr>
+   <% })%>
+</table>
+
+<p class="MsoNormal"  ><b><span >&nbsp;</span></b></p>
+<p class="Ms"><b><span>५. आयोजना मर्मत सम्भार सम्बन्धी व्यवस्था </span></b></p>
+<p class="Ms"><b><span>क)आयोजना मर्मत सम्भारको जिम्मा लिने समिति/संस्थाको नाम:</span></b></p>
+<p class="Ms"><b><span>ख) मर्मत सम्भारको सम्भावित स्रोत (छ छैन खुलाउने)</span></b></p>
+<p class="Ms"><span>·</span><b><span>जनश्रमदान:</span></b></p>
+<p class="Ms"><span>·</span><b><span >सेवा शुल्क:</span></b></p>
+<p class="Ms"><span>·</span><b><span>दस्तुर</span></b><b><span>, <span >चन्दाबाट </span></span></b></p>
+
+<p class="para"><span>·</span><b><span>अन्य केही भए:</span></b></p>
+<p><span>६. स्वघोषणा /प्रतिवद्धता </span></p>
+<p><span>क) खुम्बु पासाङल्हामु गाउँपालिकाको आर्थिक वर्ष २०८०/०८१ को स्वीकृत वार्षिक कार्यक्रममा समावेश</span>
+योजनाहरु कार्यान्वयनका लागि गठित अन्य कुनै योजनाहरुको लाभग्राही समितिमा एकै व्यक्ति र एउटा समितिमा एकाघर परिवारको सदस्य नदोहोरिएको व्यहोरा अवगत गराउँदछु। साथै हालसम्म म कुनै पनि अभियोगमा कसुरदार रही सजाय भुक्तान गर्न बाँकी नरहेको व्यहोरा विश्वस्त पार्दछु । यदि समितिमा दोहोरिएको वा कसुरदार पाइएमा कानून बमोजिम कारबाहीका लागि राजी छु
+। </span></p>
+<p><span >ख) यस लाभग्राही समितिको पदाधिकारीको हैसियतले योजना कार्यान्वयनका क्रममा कुनै व्यक्तिगत स्वार्थ</span><span>, <span>मोलाहिजामा नपरी पारदर्शी ढङ्गले योजना कार्यान्वयन गर्न प्रतिवद्ध हुनेछु । </span></span></p>
+<p>माथि उल्लिखित घोषणा सत्य हो भनी सही छाप गर्दछु । </span></p>
+<br>
+<div class="member">
+    <% members.forEach( el=>{ %>
+    <div class="element"> <span class="el">दस्तखतः ...........</span><br>
+    <span class="el"> <%= el.name %></span><br>
+    <span class="el"><%= el.designation %></span>
+    </div>
+        <% }) %>
+        
+</div>
+ <style>
+    .member{
+        display: flex; flex-wrap: wrap;
+    }
+    .element{
+        flex-basis: 20%; margin-left:20px; margin-top:12px; border-style: solid;  border-width: 0.5px; height: 100px;
+        line-height: 130%;
+    }
+    .el{
+        margin: 12px; padding-top: 12px;
+        }
+ </style>
+<p><b><u> ७. आयोजना कार्यान्वयन सम्बन्धी कार्यतालिका </u></b></p>
+<table>
+    <tr>      
+        <td> क्र. स </td> <td>क्रियाकलाप</td> <td>शुरुमिति</td> <td>अन्तिम मिति</td>
+    </tr>
+    <% 
+    if(schedule) {
+    var i=0;
+    schedule.forEach( function(e){ i++; %>
+<tr> <td> <%= i %></td>
+    <td> <div class="elm"><%= e.activities %></div></td>
+    <td> <div class="elm"><%= e.start_date %></div></td>
+    <td> <div class="elm"><%= e.end_date %></div></td>
+    <td> <div class="elm"><%= e.misc %></div></td>
+   </tr>
+   <% }) } %>
+</table>
+<span class="pt18"><br clear="all" style="page-break-before:always">
+</span>
+<p class="Ms" align="center" class="pt18"><b><span>८.सम्झौताका शर्तहरु</span></b></p>
+<p class="Ms"  ><b><span>लाभग्राही समुदायको जिम्मेवारी तथा पालना गरिने शर्तहरु:</span></b></p>
+<p class="Ms"><span >1.<span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span   >आयोजना मिति </span><span><%= project.start_date %></span><span> देखि शुरु गरी &nbsp;&nbsp; मिति.</span><span><%= project.end_date %></span><span   > सम्ममा सम्पन्न गर्नु पर्नेछ।</span></p>
+<p class="Ms"><span >2.<span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span   >प्राप्त रकम तथा निर्माण सामाग्री सम्बन्धित आयोजनाको उद्देश्यका लागि मात्र प्रयोग गर्नुपर्नेछ
+।</span></p>
+<p class="Ms"><span >3.<span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span   >नगदी</span><span  >, <span >जिन्सी
+सामानको प्राप्ति</span>, <span >खर्च र बाँकी तथा आयोजनाको प्रगति विवरण राख्नु पर्नेछ ।</span></span></p>
+<p class="Ms"><span >4.<span >&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span   >आम्दानी
+खर्चको विवरण र कार्यप्रगतिको जानकारी लाभग्राही समुदायमा छलफल गरी अर्को किस्ता माग गर्नु पर्नेछ ।</span></p>
+<p class="Ms"><span >5.<span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span   >आयोजनाको कुल लागत भन्दा घटी लागतमा आयोजना सम्पन्न भएको &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; अवस्थामा सो मुताविक नै अनुदान र श्रमदानको प्रतिशत निर्धारण गरी भुक्तानी लिनु पर्नेछ ।</span></p>
+<p class="Ms"><span >6.<span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span   >लाभग्राही समुदायले प्राविधिकको राय</span><span  >,
+<span >परामर्श एवं निर्देशन अनुरुप काम गर्नु पर्नेछ&nbsp;
+</span></span></p>
+<p class="Ms"><span >7.<span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span   >लाभग्राही समुदायले आयोजनासँग सम्वन्धित बिल</span><span  >, <span >भरपाईहरु</span>,
+<span >डोर हाजिरी फारामहरु, जिन्सी नगदी खाताहरु</span>,
+<span >समिति/समुदायको निर्णय पुस्तिका आदि कागजातहरु कार्यालयले मागेको बखत उपलव्ध गराउनु पर्नेछ र त्यसको लेखापरीक्षण पनि गराउनु पर्नेछ ।</span></span></p>
+<p class="Ms"><span >8.<span >&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span   >कुनै सामाग्री खरिद गर्दा आन्तरिक राजस्व कार्यालयबाट स्थायी लेखा नम्वर र मुल्य अभिबृद्धि कर दर्ता प्रमाण पत्र प्राप्त व्यक्ति वा फर्म संस्था वा कम्पनीबाट मात्र खरिद गरी सोही अनुसारको बिल भरपाई आधिकारिक व्यक्तिबाट प्रमाणित गरी पेश गर्नु पर्नेछ </span></p>
+<p class="Ms"><span >9.<span >&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span   >मूल्य अभिबृद्धि कर
+(</span><span  >VAT<span >) लाग्ने बस्तु तथा सेवा खरिद गर्दा रु २०</span>,<span >०००।- भन्दा बढी मूल्यको सामाग्रीमा अनिवार्य रुपमा मूल्य अभिबृद्धि कर दर्ता प्रमाणपत्र प्राप्त गरेका व्यक्ति फर्म संस्था वा कम्पनीबाट खरिद गर्नु पर्नेछ । साथै उक्त बिलमा उल्लिखित मु.अ.कर बाहेकको रकममा १.५% अग्रिम आयकर वापत कर कट्टी गरी बाँकी रकम मात्र सम्वन्धित पक्षलाई भुक्तानी
+हुनेछ । रु २०</span>,<span >०००।- भन्दा कम मूल्यको सामाग्री खरिदमा पान नम्वर लिएको व्यक्ति वा फर्मबाट खरिद गर्नु पर्नेछ । अन्यथा खरिद गर्ने पदाधिकारी स्वयम् जिम्मेवार हुनेछ ।</span></span></p>
+<p class="Ms"><span >10.<span >&nbsp;&nbsp; </span></span><span   >डोजर रोलर लगायतका मेशिनरी सामान भाडामा लिएको एवम् घर बहालमा लिई बिल भरपाई पेश भएको अवस्थामा १०% प्रतिशत घर भाडा कर एबम् बहाल कर तिर्नु पर्नेछ ।</span></p>
+<p class="Ms"><span >11.<span >&nbsp;&nbsp; </span></span><span   >सवारी साधन तथा हवाई यातायातबाट सामान ढुवानी गरे वापत २.५% ले हुन आउने रकम ढुवानी सेवा वापतको रकम कट्टी गरी भुक्तानी गरिनेछ ।</span></p>
+<p class="Ms"><span >12.<span >&nbsp;&nbsp; </span></span><span   >प्रशिक्षकले पाउने पारिश्रमिक मा १५% पारिश्रमिक कर एवम् सहभागीले पाउने भत्तामा प्रचलित नियमानुसार कर लाग्नेछ ।</span></p>
+<p class="Ms"><span >13.<span >&nbsp;&nbsp; </span></span><span   >निर्माण
+कार्यको हकमा शुरु लागत अनुमानका कुनै आईटमहरुमा परिर्वतन हुने कार्यालयबाट लागत अनुमान संसोधन गरे पश्चात मात्र कार्य गराउनु पर्नेछ । यसरी लागत अुनमान संशोधन नगरी कार्य गरेमा लाभग्राही समुदाय नै जिम्मेवार हुनेछ ।</span></p>
+<p class="Ms"><span >14.<span >&nbsp; </span></span><span   >लाभग्राही समुदायले काम सम्पन्न गरी सकेपछि बाँकी रहन गएका खप्ने सामानहरु मर्मत सम्भार समिति गठन भएको भए सो समितिलाई र सो नभए सम्वन्धित कार्यालयलाई बुझाउनु पर्नेछ । तर मर्मत समितिलाई बुझाएको सामानको विवरण एक प्रति सम्वन्धित कार्यालयलाई जानकारीको लागि बुझाउनु पर्नेछ ।</span></p>
+<p class="Ms"><span >15.<span >&nbsp;&nbsp; </span></span><span   >सम्झौता बमोजिम आयोजना सम्पन्न भएपछि अन्तिम भुक्तानीको लागि कार्यसम्पन्न प्रतिवेदन</span><span  >, <span >नापी किताव</span>, <span >प्रमाणित बिल भरपाई</span>, <span >योजनाको फोटो</span>, <span >सम्वन्धित लाभग्राही समुदायले आयोजना सञ्चालन गर्दा भएको आय व्ययको अनुमोदन सहितको निर्णय</span>,
+<span >लाभग्राही भेलाबाट भएको सार्वजनिक लेखापरीक्षणको निर्णयको प्रतिलिपी तथा सम्वन्धित कार्यालयको वडा कार्यालयको सिफारिस सहित अन्तिम किस्ता भुक्तानीको लागि निवेदन पेश गर्नु पर्नेछ।</span></span></p>
+<p class="Ms"><span >16.<span >&nbsp;&nbsp; </span></span><span   >आयोजना सम्पन्न भएपछि कार्यालयबाट जाँचपास गरी फरफारकको प्रमाणपत्र लिनु पर्नेछ । साथै आयोजनाको आवश्यक मर्मत सम्भारको व्यवस्था सम्बन्धित लाभग्राहीहरुले नै गर्नु पर्नेछ ।</span></p>
+<p class="Ms"><span >17.<span >&nbsp;&nbsp; </span></span><span   >आयोजना कार्यान्वयन गर्ने लाभग्राही समुदायले आयोजनाको भौतिक तथा वित्तीय प्रगति प्रतिवेदन अनुसूची ६ को ढाँचामा सम्झौतामा तोकिएबमोजिम कार्यालयमा पेश गर्नु पर्नेछ ।</span></p><p class="Ms"><span >18.<span >&nbsp; </span></span><span   >आयोजनाको दिगो सञ्चालन तथा मर्मत सम्भारको व्यवस्था गर्नु पर्नेछ ।</span></p>
+<style>
+    .para{
+        margin-top:0in;margin-right:0in;
+margin-bottom:0in;margin-left:22.5pt;margin-bottom:.0001pt;text-align:justify;
+text-indent:-22.5pt;line-height:normal
+    }
+</style>
+<p class="MsoNormal1"><span >19.<span >&nbsp;&nbsp; </span></span><span>आयोजनाको सवै काम लाभग्राही समुदायको निर्णय अनुसार गर्नु गराउनु पर्नेछ ।</span></p>
+<p><span  >&nbsp;</span></p>
+<p class="MsoNormal1"  ><b><span   >कार्यालयको जिम्मेवारी तथा पालना गरिने शर्तहरु:</span></b></p>
+<p class="MsoNormal1"  ><span   >१.&nbsp;&nbsp; आयोजनाको बजेट</span><span  >,
+<span >लाभग्राही समुदायको काम</span>,
+<span >कर्तव्य तथा अधिकार</span>, <span >खरिद</span>, <span >लेखाङ्कन</span>,
+<span >प्रतिवेदन आदि विषयमा लाभग्राही समुदायका पदाधिकारीहरुलाई अनुशिक्षण कार्यक्रम सञ्चालन गरिनेछ । </span></span></p>
+<p class="MsoNormal1"  ><span   >२.&nbsp;&nbsp; आयोजनामा आवश्यक प्राविधिक सहयोग कार्यालयबाट उपलव्ध गराउन सकिने अवस्थामा गराईनेछ र नसकिने अवस्था भएमा लाभग्राही समुदायले बाह्य बजारबाट सेवा परामर्श अन्तर्गत सेवा लिन सक्नेछ । </span></p>
+<p class="MsoNormal1"><span >३.&nbsp;&nbsp; आयोजनाको
+प्राविधिक सुपरीवेक्षणका लागि कार्यालयको तर्फबाट प्राविधिक खटाईनेछ । लाभग्राही समुदायबाट भएको कामको नियमित सुपरीवेक्षण गर्ने जिम्मेवारी निज प्राविधिकको हुनेछ । </span></p>
+<p class="MsoNormal1"  ><span>४.&nbsp;&nbsp; पेश्की
+लिएर लामो समयसम्म आयोजना सञ्चालन नगर्ने लाभग्राही समुदायलाई कार्यालयले नियमानुसार कारबाही गर्नेछ ।</span></p>
+<p class="Ms"><span>५.&nbsp;&nbsp; श्रममूलक प्रविधिबाट कार्य गराउने गरी लागत अनुमान स्वीकृत गराई सोही बमोजिम सम्झौता गरी मेशिनरी उपकरणको प्रयोगबाट कार्य गरेको पाईएमा त्यस्तो लाभग्राही समुदायसँग सम्झौता रद्ध गरी लाभग्राही समुदायलाई भुक्तानी गरिएको रकम मूल्याङ्कन गरी बढी भएको रकम सरकारी बाँकी सरह असुल उपर गरिनेछ
+।</span></p>
+<p class="MsoNormal1"><span>६.&nbsp;&nbsp; आयोजनासम्पन्न भएपछि कार्यालयबाट जाँच पास गरी फरफारक गर्नु पर्नेछ ।</span></p>
+<p class="MsoNormal1"><span>७.&nbsp;&nbsp; आवश्यक कागजात संलग्न गरी भुक्तानी उपलव्ध गराउन सम्बन्धित लाभग्राही  समितिबाट अनुरोध भई आएपछि लाभग्राही समुदायको बैंक खातामा भुक्तानी दिनु पर्नेछ ।</span></p>
+<p class="MsoNormal1"><span>८.&nbsp;&nbsp; यसमा उल्लेख नभएका कुराहरु प्रचलित कानूनबमोजिम हुनेछ ।</span></p>
+<p class="MsoNormal1"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class="MsoNormal1"><b><span>माथि उल्लेख भए बमोजिमका शर्तहरु पालना गर्न हामी निम्न पक्षहरु मन्जुर छौं ।</span></b></p>
+<div class="sign">
+    <div class="sgnleft">
+        <b><u>लाभग्राही समितिको तर्फबाट</u></b><br>
+        दस्तखतः<br><br>
+        नाम/थरः <br>  पदः <br>
+        ठेगानाः <br> सम्पर्क नं : <br>
+        मितिः <%= project.agreement_date %><br>    छापः
+    </div>
+    <div class="sgnright">
+        <b><u>कार्यालयको तर्फबाट</u></b> <br>
+        दस्तखतः <br><br>        
+        नाम/थरः <br>    पदः <br>
+        ठेगानाः <br>     सम्पर्क नं : <br>
+        मितिः <%= project.agreement_date %><br>  कार्यालयको छापः
+    </div>
+</div>
+<style>
+    .sign{
+        display: flex; flex-direction: row;
+    }
+    .sgnleft{
+        margin-left: 30px; width:40%;
+    }
+    .sgnright{
+        margin-left: 25px; width:40%;
+    }
+    @media print{
+   .noprint{
+       display:none;
+   }
+}
+</style>
+
+</div>
+<script type="text/javascript">
+    window.print(); 
+</script>
+</body>
+</html>
+
+
+

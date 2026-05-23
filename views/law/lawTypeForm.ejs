@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../common/header')%>
+</head>
+<body>
+  <div class="header">
+    <%- include('../common/headerImg')  %>
+  </div>
+
+  <div id="idLawType" class="w3-modal" style="z-index:4">
+    <a href="/" style="font-size:30px;cursor:pointer"> &#9776;Home</a>
+    <div class="w3-modal-content w3-animate-zoom">
+      <div class="w3-container w3-padding w3-teal">
+         <span onclick="document.getElementById('idLawType').style.display='none'"
+         class="w3-button w3-teal w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+        <h2>Law Type entry form</h2>
+      </div>
+      
+  <form action="/addLawType" method="post">
+        <div class="w3-panel">
+        <label>Law Type Name</label>
+        <input class="w3-input w3-border w3-margin-bottom" type="text" name="name">
+        <input type="submit" value="+">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="footer">
+    <%- include('../common/footer')  %>
+  </div> 
+</body>
+</html>

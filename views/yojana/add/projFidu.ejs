@@ -1,0 +1,41 @@
+<div class="noprint">
+    <button onclick="window.location.href='/projectIndex/<%= project_id %>'; ">Return Back to Project Dashboard.</button>
+</div> <br>
+<form action="/addProjFidu" method="post">
+    <div class="col">
+        <input type="hidden" name="project_id" value="<%= project_id %>">
+        <div class="row">
+            <div class="left"><label for="tr_name"> Peski Amt </label></div>
+            <div class="forminput"><input type="number" step="0.00"  class="input" name="peskiamt"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="transaction_amount">Running Bill:</label></div>
+            <div class="forminput"><input type="number"  step="0.00" class="input" name="runningbill"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="transaction_amount">Last Kista:</label></div>
+            <div class="forminput"><input type="number"  step="0.00" class="input" name="lastkista"></div>
+        </div>
+           <div class="row">
+            <div class="forminput"><button class="input"  type="submit">+</button></div>
+        </div>
+    </div>
+</form>
+
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

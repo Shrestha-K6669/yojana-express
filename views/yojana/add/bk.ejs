@@ -1,0 +1,37 @@
+<form action="/addNewBudget" method="post">
+    <div class="col">
+        <div class="row">
+            <div class="left"><label for="name"> Name(नाम):</label></div>
+            <div class="forminput"><input type="text" class="input" name="name" id="name"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="amount">Amount(रकम):</label></div>
+            <div class="forminput"><input type="number" class="input" step="0.01" name="amount" id="amount"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="description">Description(विवरण)</label></div>
+            <div class="forminput"><input type="text" class="input" name="description" id="description"></div>
+        </div>
+            
+        <div class="row">
+            <div class="forminput"><button class="input"  type="submit">+</button></div>
+        </div>
+    </div>
+</form>
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

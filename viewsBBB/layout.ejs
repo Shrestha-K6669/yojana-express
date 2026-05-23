@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>KPLRM Portal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link href='css/googleapisFont.css' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "RobotoDraft", "Roboto", sans-serif}
+.w3-bar-block .w3-bar-item {padding: 16px}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" 
+integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" crossorigin="anonymous" 
+referrerpolicy="no-referrer"></script>
+<script src="script.js"></script>
+</head>
+<body>
+
+<!-- Side Navigation -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card" 
+style="z-index:3;width:320px;" id="mySidebar">
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom w3-large">
+      KPLRM Integrated Portal</a>
+  <a href="javascript:void(0)"
+   onclick="w3_close()"
+    title="Close Sidemenu" 
+  class="w3-bar-item w3-button 
+  w3-hide-large w3-large">Close <i class="fa fa-remove"></i></a>
+  <a href="javascript:void(0)" 
+  class="w3-bar-item w3-button w3-light-blue w3-button 
+  w3-hover-blue w3-left-align" 
+  onclick="document.getElementById('idLawType').style.display='block'">Law Type entry
+    <i class="w3-padding fa fa-plus-square"></i></a>
+    <!-- -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-light-blue 
+    w3-button w3-hover-blue w3-left-align" 
+  onclick="document.getElementById('idLawForm').style.display='block'">Laws Document Entry 
+    <i class="w3-padding fa fa-plus-square"></i></a>
+    <!-- -->
+   
+    <!--testttt -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-light-blue 
+    w3-button w3-hover-blue w3-left-align" 
+  onclick="document.getElementById('idLawTest').style.display='block'"> Test
+    <i class="w3-padding fa fa-plus-square"></i></a>
+    <!-- -->
+
+  <a id="myBtn" onclick="myFunc('Demo1')" href="javascript:void(0)"
+   class="w3-bar-item w3-button"><i class="fa fa-inbox w3-margin-right"></i> Lists.
+   <i class="fa fa-caret-down w3-margin-left"></i></a>
+  <div id="Demo1" class="w3-hide w3-animate-left">
+    <form action="/laws" method="get"> <button type="submit"> Laws</button> </form>
+  </div>
+  <a href="#" class="w3-bar-item w3-button">
+    <i class="fa fa-paper-plane w3-margin-right"></i>..</a>
+  <a href="#" class="w3-bar-item w3-button">
+    <i class="fa fa-hourglass-end w3-margin-right"></i>...</a>
+  <a href="#" class="w3-bar-item w3-button">
+    <i class="fa fa-trash w3-margin-right"></i>....</a>
+</nav>
+
+<!-- body here .-->
+
+<h1 id="notification" style="margin-left:400px; color:teal" ></h1>
+<div>
+
+    <div id="idLawType" class="w3-modal" style="z-index:4">
+        <div class="w3-modal-content w3-animate-zoom">
+          <div class="w3-container w3-padding w3-teal">
+             <span onclick="document.getElementById('idLawType').style.display='none'"
+             class="w3-button w3-teal w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+            <h2>Law Type entry form</h2>
+          </div>
+          
+      <form action="/addLawType" method="post">
+            <div class="w3-panel">
+            <label>Law Type Name</label>
+            <input class="w3-input w3-border w3-margin-bottom" type="text" name="name">
+            <input type="submit" value="+">
+            
+          </div>
+          </form>
+        </div>
+      </div>
+      <!-- 
+        house form
+      -->
+      <div id="idLawForm" class="w3-modal" style="z-index:4">
+        <div class="w3-modal-content w3-animate-zoom">
+          <div class="w3-container w3-padding w3-teal">
+             <span onclick="document.getElementById('idLawForm').style.display='none'"
+             class="w3-button w3-teal w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+            <h2>Law File Entry form</h2>
+          </div>
+          
+      <form action="/addLaw" method="post" enctype="multipart/form-data">
+            <div class="w3-panel">
+            <label>Law Type:</label>
+            <select class="w3-input w3-border w3-margin-bottom" name="kanun_type" id="kanun_type">
+            <option>----</option>       
+        <% law_types.forEach(function(el){ %>
+        <option class="w3-input w3-border w3-margin-bottom" value="<%= el._id %>"><%= el.name %></option>
+        <% }) %>
+        
+      </select>
+      <label>Name:</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="name">
+      <label>File Pdf:</label>
+            <input class="w3-input w3-border w3-margin-bottom" type="file" name="k_file_pdf">
+            <label>File Word:</label>
+            <input class="w3-input w3-border w3-margin-bottom" type="file" name="k_file_word">
+            <input type="submit" value="+">
+            
+          </div>
+          </form>
+        </div>
+      </div>
+<!-- 
+  house form
+-->
+
+<!-- -->
+<div id="idLawTest" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-padding w3-teal">
+       <span onclick="document.getElementById('idLawTest').style.display='none'"
+       class="w3-button w3-teal w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+      <h2>Law Type entry form</h2>
+    </div>
+    
+<form action="/lawsPage" method="post">
+      <div class="w3-panel">
+      <label>page test</label>
+      <input type="hidden" name="page" id="page" value="2">
+      <input type="submit" value="+">
+      
+    </div>
+    </form>
+  </div>
+</div>
+
+<!--  -->
+    <%- body %>
+    </div>
+</body>
+</html> 

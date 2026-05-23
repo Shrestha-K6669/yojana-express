@@ -1,0 +1,51 @@
+ 
+<div>
+  <!---->
+  <div class="lawForm">
+    <a href="/" style="font-size:30px;cursor:pointer"> &#9776;Home</a>
+       <p> Enter New Law File Details</p>
+<form id="lawForm" action="/addLaw" method="post" enctype="multipart/form-data">
+  <!-- -->
+      <div class="formDiv">
+      <label>Law Type:</label>
+      <select class="input" name="kanun_type" id="kanun_type">
+      <option>----</option>       
+  <% law_types.forEach(function(el){ %>
+  <option  value="<%= el._id %>"><%= el.name %></option>
+  <% }) %>
+  
+</select>
+<br>
+<label>Name:</label>
+<input type="text" id="name" name="name" class="input">
+<br>
+<label>File Pdf:</label>
+      <input class="input" type="file" name="k_file_pdf" id="k_file_pdf">
+      <br>
+      <label>File Word:</label>
+      <input class="input" type="file" name="k_file_word" id="k_file_word">
+      <br>
+      <input class="sub" type="submit" value="+">
+      
+    </div>
+    </form>
+  </div>
+<style>
+.lawForm{
+  margin:15%;
+  font-size: medium;
+  border-style: solid;
+  border-width: 2px;
+  border-color: lightblue;
+}
+.input{
+  padding:10px;
+  margin:5px;
+}
+.formDiv{
+  padding:10px;
+}
+.sub{
+  width:20%;
+  height:8%;
+}

@@ -1,0 +1,117 @@
+database:
+tbl:tolebikasmember: chg: contact: varchar(15), default null,
+ctz_front: varchar(180),
+ctz_back: varchar(180)
+
+budget_karyakram:name=> 250
+
+tbl:budget_project, _id made primary.
+model: changed according to table properties.
+
+</td in tolebikasList view..
+
+$ npm install xlsx
+By default, the module supports require:
+
+var XLSX = require("xlsx");
+The module also ships with xlsx.mjs for use with import:
+
+import * as XLSX from 'xlsx/xlsx.mjs';
+
+/* load 'fs' for readFile and writeFile support */
+import * as fs from 'fs';
+XLSX.set_fs(fs);
+nb
+/* load 'stream' for stream support */
+import { Readable } from 'stream';
+XLSX.stream.set_readable(Readable);
+
+/* load the codepage support library for extended support with older formats  */
+import * as cpexcel from 'xlsx/dist/cpexcel.full.mjs';
+XLSX.set_cptable(cpexcel);
+Photoshop and InDesign
+
+dist/xlsx.extendscript.js is an ExtendScript build for Photoshop and InDesign that is included in the npm package. It can be directly referenced with a #include directive:
+
+#include "xlsx.extendscript.js"
+Internet Explorer and ECMAScript 3 Compatibility (click to show)
+Usage
+Most scenarios involving spreadsheets and data can be broken into 5 parts:
+
+Acquire Data: Data may be stored anywhere: local or remote files, databases, HTML TABLE, or even generated programmatically in the web browser.
+
+Extract Data: For spreadsheet files, this involves parsing raw bytes to read the cell data. For general JS data, this involves reshaping the data.
+
+Process Data: From generating summary statistics to cleaning data records, this step is the heart of the problem.
+
+Package Data: This can involve making a new spreadsheet or serializing with JSON.stringify or writing XML or simply flattening data for UI tools.
+
+Release Data: Spreadsheet files can be uploaded to a server or written locally. Data can be presented to users in an HTML TABLE or data grid.
+
+A common problem involves generating a valid spreadsheet export from data stored in an HTML table. In this example, an HTML TABLE on the page will be scraped, a row will be added to the bottom with the date of the report, and a new file will be generated and downloaded locally. XLSX.writeFile takes care of packaging the data and attempting a local download:
+
+// Acquire Data (reference to the HTML table)
+var table_elt = document.getElementById("my-table-id");
+
+// Extract Data (create a workbook object from the table)
+var workbook = XLSX.utils.table_to_book(table_elt);
+
+// Process Data (add a new row)
+var ws = workbook.Sheets["Sheet1"];
+XLSX.utils.sheet_add_aoa(ws, [["Created "+new Date().toISOString()]], {origin:-1});
+
+// Package and Release Data (`writeFile` tries to write and save an XLSB file)
+XLSX.writeFile(workbook, "Report.xlsb");
+
+
+//
+exports.report=(req,res)=>{
+       let report_sql=`select h_name,h_address,lat,lng,no_of_room,no_of_bed,image from hotel`
+       const queryType={ 
+        type:sequelize.QueryTypes.SELECT
+    }
+    
+    sequelize.query(report_sql,queryType).then(succ=>{
+        /* this line is only needed if you are not adding a script tag reference */
+    if(typeof XLSX == 'undefined') XLSX = require('xlsx');
+    
+    /* make the worksheet */
+    console.log(succ)
+    var ws = XLSX.utils.json_to_sheet(succ);
+    
+    /* add to workbook */
+    var wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Hotels");
+    
+    /* generate an XLSX file */
+    XLSX.writeFile(wb, "public/hotels.xlsx");
+    res.send('public/hotels.xlsx')
+    }).catch(err=>{
+        res.send({
+            message:"error getting records"+err
+        })
+    })
+   }
+
+   //
+
+   const reader = require('xlsx')
+  
+// Reading our test file
+const file = reader.readFile('./test.xlsx')
+  
+let data = []
+  
+const sheets = file.SheetNames
+  
+for(let i = 0; i < sheets.length; i++)
+{
+   const temp = reader.utils.sheet_to_json(
+        file.Sheets[file.SheetNames[i]])
+   temp.forEach((res) => {
+      data.push(res)
+   })
+}
+  
+// Printing data
+console.log(data)

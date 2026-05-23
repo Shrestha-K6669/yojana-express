@@ -1,0 +1,119 @@
+<div class="col-6 col-ss-9">
+    <div class="r1"> <div class="nametb"><%= data.name %> </div> ,<br>
+     <%= data.office_address%>,<br>
+    <%= data.tole %> पूर्वी सिमानाः <%= data.boundary_east%>,
+     पश्चिम सिमानाः <%= data.boundary_west %> <br>
+    उत्तरी सिमानाः <%= data.boundary_north %>, 
+    र दक्षिण सिमानाः <%= data.boundary_west %> भएको,
+    प्यान नं <%= data.pan_num %>, 
+    बैक खाताः <%= data.account_num%> विवरण भएको खुम्बु पासाङल्हामु गाउँपालिका क्षेत्र भित्रको
+    लाभग्राही सँस्था द्वारा सञ्चालन हुने योजनाको विवरण भर्नुहोस्ः
+    </div>
+    <div><Button><a href="/addTBRec/<%= data._id %>">Return Back to LAvgrahi Dashboard..</a></Button></div>
+     <div class="member">
+        <p style="color: red;"> लाभग्राही सँस्थाको योजनाहरुको विवरण
+        </p>
+            <table id="members">
+            <tr>
+                <th class="h">S.N</th>
+                <th class="h">Project Name</th>
+                <th class="h">Allocated Budget</th>
+                <th class="h">People Contribution</th>
+                <th class="h">Edit</th>
+                <th class="h"> Delete</th>
+                </tr>
+                  <% var i=0;
+              projects.forEach(function (e) { i++;  %>
+                <tr>
+                <td class="td1"><span class="t"><%= i %></span></td>
+                <td class="td2"> <span class="t"><%= e.project_name %></span></td>
+                <td class="td3"><span class="t"><%= e.allocated_budget %></span></td>
+                <td class="td4"><span class="t"><%= e.beneficiary_contrib %></span></td>
+                <td class="td5"><span class="t">
+                    <Button onclick="window.location.href='/<%= e._id%>';">Edit</Button></span></td>
+                <td class="td6"> <span class="t">
+                    <form action="/" method="post">
+            <input type="hidden" name="id" value="<%= e._id %>">
+            <input type="hidden" name="tb_id" value="<%= data._id %>">
+            <button type="submit">Delete</button> </form>
+                   </td>
+                </tr>
+              <% }) %>
+        </table>
+    </div>
+    <div class="ch">
+        <button onclick="window.location.href='/addProjform/<%= data._id %>';">Add New</button>
+      </div>
+    </div>
+<form action="/addProject" method="post">
+    <div class="col">
+        <input type="hidden" name="tb_id" value="<%= data._id %>">
+        <div class="row">
+            <div class="left"><label for="Project Level"> Project Level(योजना स्तर)</label></div>
+            <div class="forminput"><select name="project_level" class="input" id="">
+                <option value="ward">वडास्तरीय</option>
+                <option value="rm">गाउँपालिकास्तरीय</option>
+            </select></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="project name"> Project Name(योजनाको नाम):</label></div>
+            <div class="forminput"><input type="text" class="input" name="project_name" id="project_name"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="budget_karyakram">Budget Title(बजेट शीर्षक)</label></div>
+            <select name="bk_id" id="bk_id">
+            <% budgets.forEach(function (e) { i++;  %> 
+                <option value="<%= e._id %>"><%= e.name %>|| <%= e.description %>|| (NRS:: <%= e.amount%>)</option>
+           <% }); %>
+                </select>
+              </div>
+        <div class="row">
+            <div class="left"><label for="allocated budget">Allocated Budget(छुट्याएको रकम):</label></div>
+            <div class="forminput"><input type="number" class="input" step="0.01" name="allocated_budget" id="allocated_budget"></div>
+        </div>
+        <div class="row">
+            <div class="left"> <label for="beneficiary_contrib">Beneficiary Contribution(लाभग्राही श्रमदान):</label></div>
+            <div class="forminput"><input type="number" class="input" step="0.01" name="beneficiary_contrib" id="beneficiary_contrib"></div>
+        </div>
+<div class="row">
+    <div class="left"> <label for="project_address"> Project Address(योजना स्थल)</label></div>
+    <div class="forminput"><input type="text" class="input" name="project_address" id="project_address"></div>
+</div>
+<div class="row">
+    <div class="left"> <label for="aim"> Project Aim(योजना को उद्देश्य)</label></div>
+    <div class="forminput"><input type="text" class="input" name="aim" id="aim"></div>
+</div>
+<div class="row">
+    <div class="left"> <label for="start_date"> Starting Date: (योजना शुरु मितिः )</label></div>
+    <div class="forminput"><input type="text" class="input" name="start_date" id="start_date"></div>
+</div>
+<div class="row">
+    <div class="left"> <label for="end_date"> End Date: (योजना समापन मितिः )</label></div>
+    <div class="forminput"><input type="text" class="input" name="end_date" id="end_date"></div>
+</div>
+<div class="row">
+    <div class="left"> <label for="end_date"> Agreement Date: (योजना सम्झौता मितिः )</label></div>
+    <div class="forminput"><input type="text" class="input" name="agreement_date" id="agreement_date"></div>
+</div>
+<div class="row">
+    <div class="forminput"><button type="submit" class="input">+</button></div>
+</div>
+    </div>
+</form>
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

@@ -1,0 +1,11 @@
+{
+	"apps":[
+   {
+   	"name": "mixed server",
+   "script": "./index.js",
+   "watch":true,
+   "instances":1,
+   "exec_mode":"cluster"
+   }
+	]
+}

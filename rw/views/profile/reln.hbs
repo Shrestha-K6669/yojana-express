@@ -1,0 +1,20 @@
+
+{{#if relation}}
+<div class="w3-input">
+    <p> Inputted Id is: {{message._id}}</p>
+    <p>Relation Code is: {{message.code}}</p>
+    <p> Reln desc is: {{message.name}}</p>
+</div>
+{{/if}}
+<form enctype="multipart/form-data" action="/addReln" method="post">
+      <div class="w3-panel">
+      <label>Relation Code</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="number" name="reln_code">
+      <label>Relation Desc</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="number" name="name">
+      <input type="submit" value="+">
+      <div class="w3-section">
+       <a class="w3-button w3-light-grey w3-right" onclick="document.getElementById('id02').style.display='none'">close <i class="fa fa-remove"></i></a> 
+      </div>     
+    </div>
+    </form>

@@ -1,0 +1,102 @@
+<div>
+   <Button><a href="/addTBRec/<%= data._id %>">Back to ToleBikas Dashboard..</a></Button>
+</div>
+<div class="col-6 col-ss-9">
+<div class="r1"> <div class="nametb"><%= data.name %> </div> , <%= data.office_address%>,
+<%= data.tole %> पूर्वी सिमानाः <%= data.boundary_east%>, पश्चिम सिमानाः <%= data.boundary_west %>
+उत्तरी सिमानाः <%= data.boundary_north %>, र दक्षिण सिमानाः <%= data.boundary_south %> भएको,
+प्यान नं <%= data.pan_num %>, बैक खाताः <%= data.account_num%> विवरण भएको खुम्बु पासाङल्हामु गाउँपालिका क्षेत्र भित्रको
+लाभग्राही सँस्थाको विवरण भर्नुहोस्ः
+</div>
+<div class="member">
+    <p style="color: red;"> विवरण भरिसकिएका लाभग्राही सँस्थाको सदस्य विवरण</p>
+        <table>
+        <tr>
+            <th class="h">S.N</th>
+            <th class="h">Name</th>
+            <th class="h">Designation</th>
+            <th class="h">Citizenship number</th>
+            <th class="h">Edit</th>
+            <th class="h"> Delete</th>
+               </tr>
+              <% var i=0;
+          members.forEach(function (e) { i++;  %>
+      <tr>
+            <td class="td1"><span class="t"><%= i %></span></td>
+            <td class="td2"> <span class="t"><%= e.name %></span></td>
+            <td class="td3"><span class="t"><%= e.designation %></span></td>
+            <td class="td4"><span class="t"><%= e.ctz %></span></td>
+            <td class="td5"><span class="t"><Button onclick="window.location.href='/<%= e._id %>';">Edit</Button></span></td>
+            <td class="td6"> <span class="t"><Button onclick="window.location.href='/<%= e._id %>';">Delete</Button></span></td>
+            </tr>
+          <% })%>
+    </table>
+</div>
+</div>
+<br><p style="color:blue">लाभग्राही सँस्था पदाधिकारी फाराम </p>
+<form action="/addTBMember" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="tolebikas_id" value="<%= data._id %>">
+    <div class="col">
+            <div class="row">
+            <div class="left"> <label for="name"> Name(नामः)</label> </div>
+            <div class="forminput">
+                <input type="text" class="input" name="name" id="name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="left"> <label for="designation">Designation(पदः)</label></div>
+            <div class="forminput"><select name="designation" style="width:110px;">
+      <option value="अध्यक्ष">अध्यक्ष</option>
+      <option value="उपाध्यक्ष">उपाध्यक्ष</option>
+      <option value="सचिव">सचिव</option>
+      <option value="कोषाध्यक्ष">कोषाध्यक्ष</option>
+      <option value="सदस्य">सदस्य</option>
+  </select>
+    </div>
+        </div>
+        <div class="row"><div class="left"><label for="address">Address(ठेगानाः)</label></div> 
+    <div class="forminput"><input type="text" class="input" name="address" id="address"></div>
+    </div>
+    <div class="row">
+        <div class="left"><label for="ctz">Citizenship No: (नागरिकता नं)</label></div>
+        <div class="forminput"><input type="text" class="input" name="ctz" id="ctz"></div>
+    </div>
+    <div class="row">
+        <div class="left"><label for="email"> Email Address: (इमेल ठेगाना)</label></div>
+        <div class="forminput"><input type="text" class="input" name="email" id="email"></div>
+    </div>
+    <div class="row">
+        <div class="left"><label for="citizenshpFile">Citizenship cert(नागरिकता प्रमाणपत्रः अगाडिपट्टिको)</label></div>
+        <div class="forminput"> <input type="file" class="input" name="ctz_front" id="ctz_front"> </div>
+    </div>
+<div class="row"><div class="left"><label for="ctzback">Citizenship cert(नागरिकता प्रमाणपत्रः पछाडिपट्टिको)</label></div>
+<div class="forminput"><input type="file" class="input" name="ctz_back" id="ctz_back"></div>
+</div>
+<div class="row">
+    <div class="left"><label for="photo">Photo(फोटो)</label></div>
+    <div class="forminput"><input type="file" class="input" name="photo" id="photo"></div>
+</div>
+<div class="row">
+    <div class="left"><label for="contact">Contact(सम्पर्क नं)</label></div>
+    <div class="forminput"><input type="text" class="input" name="contact" id="contact"></div>
+</div>
+<div class="row">
+    <div class="left"><label for="sequence">Sequence</label></div>
+    <div class="forminput"><input type="number" class="input" name="seq" id="seq"></div>
+</div>
+<div class="forminput"><button class="input" type="submit">+</button></div>
+    </div>
+</form>
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{ display: flex;flex-direction: row;padding: 5px; }
+    .left{ width:25%;margin-left: 10px; margin-right: 8px; }
+    .forminput{  width:45%; }
+    .input{ width:85%;height: 40px;padding:4px; }
+    table, th, td { border: 1px solid black!important;  border-collapse: collapse; word-wrap: break-word; }
+   th, td {  padding: 1.5px;  text-align: left; }
+   .r1{  width:80%; }
+   .t{    margin:10px;  }
+</style>

@@ -1,0 +1,88 @@
+
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <%- include('../../common/header')  %>
+  
+  </head>
+  <body>
+  
+  <div id="mySidenav" class="sidenav">
+    <%- include('../../common/nav')%>
+  </div>
+  
+  <div class="header">
+    <%- include('../../common/headerImg')  %>
+  </div>
+  
+  <div class="row">
+    <div class="col-3 col-s-3 menu">
+     <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;open</span> -->
+          <a href="/" style="font-size:30px;cursor:pointer"> &#9776;Home</a>
+    </div>
+    <Button class="btn" onclick="window.location.href='/tolebikas'; "> Return Back to Tolebikas List.</Button>
+  <!-- de activated 
+    <div class="col-3 col-s-12">
+      <div class="aside">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav1()"> &#9776;open</span>
+        </div>
+    </div> -->
+  </div>
+  <div class="add">
+    <Button class="btn" onclick="window.location.href='/bk-form/'; ">Add New Budget</Button>
+    </div>
+<div class="col" style="margin-left:2%">
+  <table class="tbltolebks">
+    <!-- name,ward_num,tole,boundary_east, boundary_west, boundary_north,
+ boundary_south,
+office_address, co_ord_x, co_ord_y, account_num, pan_num, reg_num-->
+  <tr>
+  <th class="h">S.N</th>
+  <th class="h">Name</th>
+  <th class="h">Amount</th>
+  <th class="h">Description</th>
+    <th class="h"> Edit</th>
+  <th class="h"> Delete</th>
+ </tr>
+<% var i=0;
+data.forEach(function (e) { i++;  %>
+   <tr>
+  <td class="td1"><div class="td"><%= i %></div></td>
+  <td class="td2"><div class="td"><%= e.name %></div></td>
+  <td class="td3"><div class="td"><%= e.amount %></div></td>
+  <td class="td4"><div class="td"><%= e.description %></div></td>
+   <td class="td5">
+    <div class="td"><button onclick="window.location.href='/bkEditForm/<%= e._id %>'; ">Edit</button></div></td>
+    <td> <div class="td"><Button onclick="window.location.href='/delbk/<%= e._id %>'; ">Delete</Button></div></td>
+  </tr>
+<% })%>
+
+</table>
+
+</div>
+
+  <br>
+  <br>
+  <div class="add">
+    <Button class="btn" onclick="window.location.href='/bk-form/'; ">Add New Budget</Button>
+    </div>
+  <br>
+  <style>
+ .td{
+    margin-left:12px;
+    padding:4px;
+ }
+    </style>
+  <div class="space" style="height:40px"></div>
+  <div class="footer">
+    <%- include('../../common/footer')  %>
+  </div>
+   </body>
+  </html>
+  
+
+
+
+
+

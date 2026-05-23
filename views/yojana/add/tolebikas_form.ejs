@@ -1,0 +1,128 @@
+<%- include('../../common/header')  %>
+<div class="header">
+    <%- include('../../common/headerImg')  %>
+  </div>
+  <div class="col-3 col-s-3 menu">
+    <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;open</span> -->
+         <a href="/" style="font-size:30px;cursor:pointer"> &#9776;Home</a>
+   </div>
+   <br>
+<form action="/addTolebikas" method="post" enctype="multipart/form-data">
+    <!--  tolebikas form -->
+<div class="col">
+    <div class="row">
+        <div class="left"><label for="account_num">Name of Tole Bikas Sanstha(नाम)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="name" id="name">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="account_num">Ward Number(वडा नं )</label> </div>
+        <div class="forminput">
+            <input type="number" class="input" name="ward_num" id="ward_num">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="account_num">Tole(टोल)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="tole" id="tole">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="account_num"> East Boundary (पूर्व)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="boundary_east" id="boundary_east">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="account_num">Boundary West(पश्चिम)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="boundary_west" id="boundary_west">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="account_num">Boundary North(उत्तर)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="boundary_north" id="boundary_north">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="account_num">Boundary South(दक्षिण)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="boundary_south" id="boundary_south">
+        </div></div>
+    
+    <div class="row">
+        <div class="left"><label for="account_num">Office Address(कार्यालयको ठेगानाः)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="office_address" id="office_address">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="account_num">Co-Ordinate(Lat))</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="co_ord_x" id="co_ord_x">
+        </div>
+    </div>
+    <div class="row">
+        <div class="left"><label for="account_num">Co-Ordinate(Long))</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="co_ord_y" id="co_ord_y">
+        </div>
+    </div>
+    <div class="row">
+        <div class="left"><label for="account_num">Profile/Logo(लोगो)</label> </div>
+        <div class="forminput">
+            <input type="file" class="input" name="profilepic" id="profilepic">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="left"><label for="account_num">Account Number(बैंक खाता नं)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="account_num" id="account_num">
+        </div>
+    </div>
+    <div class="row">
+        <div class="left"><label for="pan_num">PAN Number(प्यान नं)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="pan_num" id="pan_num">
+        </div>
+    </div>
+    <div class="row">
+        <div class="left"><label for="reg_num">Registration Number(दर्ता नं)</label> </div>
+        <div class="forminput">
+            <input type="text" class="input" name="reg_num" id="reg_num">
+        </div>
+    </div>
+       <div class="forminput">
+        <button class="input" type="submit">+</button>
+    </div>
+</div>
+
+</form>
+
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

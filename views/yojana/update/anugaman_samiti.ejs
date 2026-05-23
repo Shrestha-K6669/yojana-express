@@ -1,0 +1,62 @@
+<form action="/tbecUpdate" method="post">
+    <div class="col">
+        <input type="hidden" name="tolebks_id" value="<%= data.tolebks_id %>">
+        <input type="hidden" name="id" value="<%= data._id %>">
+        
+        <div class="row">
+            <div class="left"><label for="name"> Name(नाम, थर)</label></div>
+            <div class="forminput">
+                <input type="text" class="input" name="name" id="name" value="<%= data.name %>">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="left"><label for="designation"> Designation (पद)</label></div>
+            <div class="forminput">
+                <input type="text" class="input" name="designation" id="designation" value="<%= data.designation %>">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="left"><label for="contact">Contact(सम्पर्क नं)</label></div>
+            <div class="forminput">
+                <input type="text" class="input" name="contact" id="contact" value="<%= data.contact %>">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="left"><label for="email">Email(इमेल)</label></div>
+            <div class="forminput">
+                <input type="text" class="input" name="email" id="email" value="<%= data.email %>">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="left"><label for="ctz">Citizenship(नागरिकता नं)</label></div>
+            <div class="forminput">
+                <input type="text" class="input" name="ctz" id="ctz" value="<%= data.ctz %>" >
+            </div>
+        </div>
+        
+          <div class="forminput">
+            <button class="input" type="submit">+</button>
+        </div>
+    </div>
+</form>
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

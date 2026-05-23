@@ -1,0 +1,58 @@
+[
+{
+"project": {
+"_id": "1dcbdfb9a2094ffebd311c6c951447a5",
+"tb_id": "11",
+"project_level": "ward",
+"project_name": "५ न‍ वडा व्यवस्थापन योजना",
+"allocated_budget": 1500000,
+"beneficiary_contrib": 150000,
+"project_address": "नाम्चे वडा कार्यालय",
+"aim": "नाम्चे वडा कार्यालयको व्यवस्थापन गर्न",
+"start_date": "२०८०।०७।१५",
+"end_date": "२०८०।१२।२५",
+"agreement_date": "२०८०।०७।१०"
+},
+"schedule": [
+{
+"_id": "f442efce258046ad94887e7b05aea47d",
+"project_id": "1dcbdfb9a2094ffebd311c6c951447a5",
+"activities": "Furniture Purchase/making",
+"start_date": "2080-08-01",
+"end_date": "2080-08-20",
+"misc": "furniture related task"
+}
+],
+"beneficiary": {
+"_id": "ffad8f62a88646f9817502fdac8da18b",
+"proj_id": "1dcbdfb9a2094ffebd311c6c951447a5",
+"male": 1,
+"female": 1,
+"houses": 1,
+"janajati_m": 1,
+"janajati_f": 1,
+"dalit_m": 1,
+"dalit_f": 1,
+"other_m": 1,
+"other_f": 1,
+"house_j": 1,
+"house_d": 1,
+"house_o": 1
+}
+}
+]
+
+<table>
+    <tr>      
+        <td> क्र. स </td> <td>क्रियाकलाप</td> <td>शुरुमिति</td> <td>अन्तिम मिति</td>
+    </tr>
+    <% var i=0;
+    projects.forEach( function(e){ i++; %>
+<tr> <td> <%= i %></td>
+    <td> <div class="elm"><%= e.schedule[i].activities %></div></td>
+    <td> <div class="elm"><%= e.schedule[i].start_date %></div></td>
+    <td> <div class="elm"><%= e.schedule[i].end_date %></div></td>
+    <td> <div class="elm"><%= e.schedule[i].misc %></div></td>
+   </tr>
+   <% })%>
+</table>

@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../common/header')%>
+  <style>
+    #idLawForm{
+      margin-left: 10%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <%- include('../common/headerImg')  %>
+  </div>
+  <div id="idLawForm" class="w3-moda" style="z-index:4">
+    <div class="w3-modal-content w3-animate-zoom">
+      <div class="w3-container w3-padding w3-teal">
+         <span onclick="document.getElementById('idLawForm').style.display='none'"
+         class="w3-button w3-teal w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+        <h2>Law File Entry form</h2>
+      </div>
+      
+  <form action="/addLaw" method="post" enctype="multipart/form-data">
+        <div class="w3-panel">
+        <label>Law Type:</label>
+        <select class="w3-input w3-border w3-margin-bottom" name="kanun_type" id="kanun_type">
+        <option>----</option>       
+    <% law_types.forEach(function(el){ %>
+    <option class="w3-input w3-border w3-margin-bottom" value="<%= el._id %>"><%= el.name %></option>
+    <% }) %>
+    
+  </select>
+  <label>Name:</label>
+  <input type="text" name="name">
+  <label>File Pdf:</label>
+        <input  type="file" name="k_file_pdf">
+        <label>File Word:</label>
+        <input type="file" name="k_file_word">
+        <input type="submit" value="+">
+        
+      </div>
+      </form>
+    </div>
+  </div> 
+  <br><br><br>
+  <div class="footer">
+    <%- include('../common/footer')  %>
+  </div> 
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+      $("#lawForm").on('submit',function(event){
+  event.preventDefault();
+  var kanun_type=$('#kanun_type').val();
+  var name=$('#name').val();
+  var k_file_pdf = document.querySelector('#k_file_pdf');
+  var k_file_word = document.querySelector('#k_file_word');
+  var formData = new FormData();
+  formData.append("k_file_pdf", k_file_pdf.files[0]);
+  formData.append("k_file_word",k_file_word.files[0]);
+  var data1={
+    kanun_type,name,formData
+  }
+  //console.log(data1)
+  
+  axios.post('/addLaw', data1,{
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+  })
+  .then(function (response) {
+    console.log(response);
+     alert("Law information added successfully.")
+    
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  
+      })
+     
+    })
+  </script>
+
+
+    
+   <!---->
+    <div class="lawForm">
+      <a href="/" style="font-size:30px;cursor:pointer"> &#9776;Home</a>
+         <p> Enter New Law File Details</p>
+  <form action="/addLaw" method="post" enctype="multipart/form-data">
+        <div class="formDiv">
+        <label>Law Type:</label>
+        <select class="input" name="kanun_type" id="kanun_type">
+        <option>----</option>       
+    <% law_types.forEach(function(el){ %>
+    <option  value="<%= el._id %>"><%= el.name %></option>
+    <% }) %>
+    
+  </select>
+  <br>
+  <label>Name:</label>
+  <input type="text" name="name" class="input">
+  <br>
+  <label>File Pdf:</label>
+        <input class="input" type="file" name="k_file_pdf">
+        <br>
+        <label>File Word:</label>
+        <input class="input" type="file" name="k_file_word">
+        <br>
+        <input class="sub" type="submit" value="+">
+        
+      </div>
+      </form>
+    </div>
+ <style>
+  .lawForm{
+    margin:15%;
+    font-size: medium;
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightblue;
+  }
+  .input{
+    padding:10px;
+    margin:5px;
+  }
+  .formDiv{
+    padding:10px;
+  }
+  .sub{
+    width:20%;
+    height:8%;
+  }
+ </style>  
+ 

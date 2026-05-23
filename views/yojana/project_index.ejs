@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<%- include('../common/header')  %>
+  </head>
+<body>
+  <style>
+      .container{
+          width:100%;
+          height:1000px;
+      }
+      
+  </style>
+  <div class="container">
+      
+<div id="mySidenav" class="sidenav">
+  <%- include('../common/nav')%>
+ </div>
+ 
+ <div class="header">
+   <%- include('../common/headerImg')  %>
+ </div>
+ 
+ <div class="row">
+   <div class="col-3 col-s-3 menu">
+     <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;open</span>
+   </div>
+ 
+ <!-- de activated 
+   <div class="col-3 col-s-12">
+     <div class="aside">
+       <span style="font-size:30px;cursor:pointer" onclick="openNav1()"> &#9776;open</span>
+       </div>
+   </div> -->
+ </div>
+ <div class="col-9 col-ss-12">
+   <div class="mid"> <!-- for buttons in flex, -->
+     <div class="content">
+
+      <div class="r1"> 
+        <table>
+            <tr>
+                <td>Project NAme :</td> <td class="field1"> <%= project.project_name %></td>
+            </tr>
+        </table>
+      </div>
+
+      <div class="cc">
+  <table>
+    <div class="ch">
+      <Button><a href="/addTBRec/<%= tb_id %>">Back to ToleBikas Dashboard..</a></Button>
+      </div>
+    <tr><td>
+      <div class="list1">
+        
+        <div class="ch">
+          <button onclick="window.location.href='/projects/<%= tb_id %>';"> Return Back to Projects List </button>
+        </div>
+        
+       </div>
+    </td>
+    <td>
+      <div class="ch">
+        <button onclick="window.location.href='/Projbeneficiaryform/<%=project_id %>' ;">
+        <div class="imp">
+          Add Project Beneficiary (लाभान्वित हुनेको विवरण) <br>(अनिवार्य भर्नु पर्ने)
+        </div>
+      </button>
+      </div>
+    </td>
+  </tr>
+  <tr>
+<td>
+</td>
+<td> <button  onclick="window.location.href='/ProjScheduleForm/<%=project_id %>' ;">
+<div class="imp">Add Project Schedule <br> (अनिवार्य भर्नु पर्ने) </div></button></td>
+</tr>
+<tr>
+    <td> <button onclick="window.location.href='/projDocForm/<%=project_id %>' ;">
+        Add Project Documents</button></td>
+    <td> <button onclick="window.location.href='/addProjFidu/<%=project_id %>' ;">
+        Add Kista Information </button></td> 
+</tr>
+  
+</table>
+  
+
+   <div class="list1">
+    
+
+     
+    <div class="ch">
+      <p>Report View / download  </p>
+    </div>
+   </div>
+
+   <div class="list1">
+    <div class="ch">
+        <button onclick="window.location.href='/projschedules/<%=project_id %>';"> View Project Schedule (आयोजना कार्यसूची)</button>
+    </div>
+   
+    <div class="ch">
+       <button onclick="window.location.href='/getProjFidu/<%= project_id %>';">View  Project payment Info(आयोजना किस्ता रकम विवरण)</button>
+    </div>
+    <div class="ch">
+      <button onclick="window.location.href='/projectDocs/<%= project_id %>';">View Project Docs..</button>
+    </div>
+    <div class="ch">
+      <button onclick="window.location.href='/tippani/<%= project_id %>/<%= tb_id %>';">Tippani Adesh</button>
+    </div>
+    <div class="ch">
+      <button onclick="window.location.href='/karyades/<%= project_id %>/<%= tb_id %>';">KaryaAdesh</button>
+    </div>
+       <div class="ch">
+        <form action="/agreementProject" method="post">
+            <input type="hidden" name="tb_id" value="<%= tb_id %>">
+            <input type="hidden" name="project_id" value="<%= project_id %>">
+            <button type="submit"> Agreement Report(with reference to project)</button>
+        </form>
+        
+    </div>
+    <div class="ch">
+      <button onclick="window.location.href='/budgets';">बजेट तथा कार्यक्रम सूची</button>
+    </div>
+   </div>
+<br><p><b> Delete  गर्ने / ध्वस्त पार्ने वा उडाउने section </b></p>
+   <div class="list1">
+    <div class="ch">
+      <button class="red" onclick="window.location.href='/delProjSchedule/<%=project_id %>';"> Delete Project Schedule (आयोजना कार्यसूची नष्ट गर्ने/ ध्वस्त पार्ने वा उडाउने )</button>
+  </div>
+  <div class="ch">
+    <button onclick="window.location.href='/delprojbeneficiary/<%=project_id %>' ;">Delete Project Beneficiary</button>
+</div>
+
+   </div>
+
+ </div>
+ <!-- लाभग्राही सँस्थाहरु -->
+ <style>
+  .red{
+    color: red;
+  } .blue{
+    color: blue;
+  }
+  .imp{
+    color:red;
+  }
+  .list1{
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    margin:5px;
+    padding:2px;
+  }
+  .ch{
+    margin:5px;
+    padding:2px;
+     }  button { height:80px;}
+  .cc{
+    width:100%;
+    font-size: 16px;
+    font-weight: bold;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    margin:20px;
+  }
+  .table{
+    width:100%;
+  }
+  .field1{
+    color:red
+  }
+ </style>
+ </div>
+</div>
+
+     
+   <div class="mid"> <!-- for buttons in flex, -->
+    <!-- div2 d2-->
+    <div style="width: 100%; height:20%;"></div>
+</div> 
+ </div>
+  </div>
+<br>
+  <br><br><br>
+  <br><br><br>
+<div class="footer">
+  <%- include('../common/footer')  %>
+</div>
+
+</body>
+</html>

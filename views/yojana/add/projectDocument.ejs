@@ -1,0 +1,36 @@
+<br><p style="color:blue">Documents Related to Project should be uploaded here, please upload clear jpg/pdf documents; use flatbed/feeder scanner if available, else use cam scanner app of the mobile phone </p>
+<div class="noprint">
+    <button onclick="window.location.href='/projectIndex/<%= project_id %>'; ">Return Back to Project Dashboard.</button>
+</div> <br>
+<form action="/addProjDoc" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="project_id" value="<%= project_id %>">
+
+    <div class="col">
+            <div class="row">
+            <div class="left"> <label for="name"> Document Name(कागजात नामः)</label> </div>
+            <div class="forminput">
+                <input type="text" class="input" name="documentname" id="name">
+            </div>
+        </div>
+       
+         <div class="row">
+        <div class="left"><label for="File">Document (कागजात)</label></div>
+        <div class="forminput"> <input type="file" class="input" name="doc" id="doc"> </div>
+    </div>
+<div class="forminput"><button class="input" type="submit">+</button></div>
+    </div>
+</form>
+
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{ display: flex;flex-direction: row;padding: 5px; }
+    .left{ width:25%;margin-left: 10px; margin-right: 8px; }
+    .forminput{  width:45%; }
+    .input{ width:85%;height: 40px;padding:4px; }
+    table, th, td { border: 1px solid black!important;  border-collapse: collapse; word-wrap: break-word; }
+   th, td {  padding: 1.5px;  text-align: left; }
+   .r1{  width:80%; }
+   .t{    margin:10px;  }
+</style>

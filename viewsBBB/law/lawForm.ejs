@@ -1,0 +1,48 @@
+
+    <style>
+    .w3-modal1{
+  display: 'block';
+  margin-left:20%;
+    }
+    </style>
+
+<div id="idDocumentForm" class="w3-modal1" style="z-index:4">
+    <div class="w3-modal-content w3-animate-zoom">
+      <div class="w3-container w3-padding w3-red">
+         <span onclick="document.getElementById('idDocumentForm').style.display='none'"
+         class="w3-button w3-red w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+        <h2>Fill Other Information of Family memeber.</h2>
+      </div>
+      <!-- 
+         <form id="documentForm" enctype="multipart/form-data">
+        
+      -->
+ <form id="documentForm" action="/addDocuments" method="post" enctype="multipart/form-data">
+        <div class="w3-panel">
+           <p>Checking id::: <%= id %></p>
+      <br>
+    <input type="hidden" id="f_id" name="f_id" value="<%= id %>">  
+   <label>Age:</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="number" name="age" id="age">
+      <label>Profession</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="profession" id="profession">
+       <br>
+       <label>Citizenship</label>
+       <input class="w3-input w3-border w3-margin-bottom" type="file" id="ctz" name="ctz" multiple>
+       <label>Certificates</label>
+       <input class="w3-input w3-border w3-margin-bottom" type="file" id="cert" name="cert" multiple>
+       <label>Land Ownership</label>
+       <input class="w3-input w3-border w3-margin-bottom" type="file" id="land" name="land" multiple>
+       <label>Company Files</label>
+       <input class="w3-input w3-border w3-margin-bottom" type="file" id="company" name="company" multiple>
+       <label>Others</label>
+       <input class="w3-input w3-border w3-margin-bottom" type="file" id="others" name="others" multiple>
+       <label>Status:</label>
+       <input class="w3-input w3-border w3-margin-bottom" type="text" id="status" name="status">
+       <br>
+       <input type="submit" value="+">
+        </div>
+      </form>
+    </div>
+  </div>
+  

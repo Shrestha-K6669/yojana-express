@@ -1,0 +1,45 @@
+    <div class="lawForm">
+      <a href="/" style="font-size:30px;cursor:pointer"> &#9776;Home</a>
+         <p> Enter New Law File Details</p>
+  <form action="/updateLaw" method="post">
+        <div class="formDiv">
+          <input type="hidden" name="id" value="<%= data._id %>">
+        <label>Law Type:</label>
+        <select class="input" name="kanun_type" id="kanun_type">
+        <option value="<%= data.kanun_type %>" selected><%= data.kanun_type %></option>       
+    <% law_types.forEach(function(el){ %>
+    <option class="w3-input w3-border w3-margin-bottom" value="<%= el._id %>"><%= el.name %></option>
+    <% }) %>
+    
+  </select>
+  <br>
+  <label>Name:</label>
+  <input type="text" name="name" class="input" value="<%= data.name%>" >
+  <br>
+        <input class="sub" type="submit" value="+">
+        
+      </div>
+      </form>
+      
+    </div>
+ <style>
+  .lawForm{
+    margin:15%;
+    font-size: medium;
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightblue;
+  }
+  .input{
+    padding:10px;
+    margin:5px;
+  }
+  .formDiv{
+    padding:10px;
+  }
+  .sub{
+    width:20%;
+    height:8%;
+  }
+ </style>  
+ 

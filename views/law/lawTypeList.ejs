@@ -1,0 +1,73 @@
+
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <%- include('../common/header')  %>
+  
+  </head>
+  <body>
+  
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn1" onclick="closeNav()">Close Menu &times;</a>
+    <a href="/">Home</a>
+    <a href="/laws">Laws of KPLRM</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+  
+  <div class="header">
+    <%- include('../common/headerImg')  %>
+  </div>
+  
+  <div class="row">
+    <div class="col-3 col-s-3 menu">
+     <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;open</span> -->
+          <a href="/" style="font-size:30px;cursor:pointer"> &#9776;Home</a>
+    </div>
+  
+  <!-- de activated 
+    <div class="col-3 col-s-12">
+      <div class="aside">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav1()"> &#9776;open</span>
+        </div>
+    </div> -->
+  </div>
+  
+<div class="col-6 col-ss-9" style="margin-left:2%">
+  <table class="tbl">
+    <col width="4%"><col width="20%"><col width="20%">
+    <col width="20%">
+    <tr>
+  <th class="head">S.N</th>
+  <th class="head">Law_type</th>
+  <th class="head"> Edit</th>
+  <th>Delete</th>
+</tr>
+<% var i=0;
+data.forEach(function (e) { i++;  %>
+<tr>
+  <td class="td1"><%= i %></td>
+  <td class="td2"><%= e.name %></td>
+  <td class="td7"><a href="/editLawType/<%= e._id %>">Edit</a></td>
+  <td class="td8"><a href="/deleteLawType/<%= e._id %>">Delete</a></td>
+</tr>
+<% })%>
+</table>
+</div>
+
+  <br>
+  <br>
+  <br>
+  <div class="footer">
+    <%- include('../common/footer')  %>
+  </div>
+   </body>
+  </html>
+  
+
+
+
+
+

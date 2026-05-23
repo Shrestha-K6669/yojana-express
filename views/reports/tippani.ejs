@@ -1,0 +1,138 @@
+<div class="noprint">
+    <button onclick="window.location.href='/projectIndex/<%= project._id %>'; ">Return Back to Project Dashboard.</button>
+</div>
+<div class="print" id="print">
+    <div class="head">
+        <div class="logoleft"><img width="83" height="75" src="http://103.69.125.247:3000/img/npl.jpg" alt=""></div>
+       <div class="gapaname"><span  class="gname">खुम्बु पासाङल्हामु गाउँपालिका</span><br>
+        <span  class="gname">Khumbu Pasanglhamu Rural Municipality</span> <br>
+        <span  class="gapaaddr">गाउँ कार्यपालिकाको कार्यालय, चौ‍रीखर्क,सोलुखुम्बु, कोशी प्रदेश,नेपाल</span><br>
+            <span class="gapaeng">Office of the Rural Municipal Executive, Chaurikharka,Solukhumbu, Koshi Province, Nepal </span>
+     </div>
+    <div class="logoright"><img width="83" height="75" src="http://103.69.125.247:3000/img/khumbu.png"></div>
+    </div>
+    <hr class="hh">
+    <style>
+       
+        .head{
+            display: flex; flex-direction: row;
+         justify-content: center; align-items: center;
+        }  .gname{ font-size: 22px; }
+        .logoleft{width: 12%; align-items: right; display: flex;
+        justify-content: center;
+        align-items: center;} .logoright{width: 12%; display: flex;
+        justify-content: center;
+        align-items: center; }
+         .gapaname{color: red; font-size: 16px; margin-left: 8px; text-align: center; width: 76%;}
+        .gapaaddr{
+            font-size:14px; margin-left: 8px; color: black;
+            font-weight: bold; align-content: center; text-align: center;
+        }   .gapaeng{ color: black; font-size: 14px; align-content: center; align-items: center; text-align: center; margin-left: 8px; }
+        hr.hh {
+      border: 1px solid red; margin-right: 40px;
+    }
+    .reference{
+        display: flex; flex-direction: row;
+    }  .leftref{ width:45%;}
+    .rightref{ width: 40%; text-align: right;}  .tbody{ margin-left: 15px;}
+    .txt-center{text-align: center;}
+    table, th, td { border: 0.5px solid black!important;  border-collapse: collapse; word-wrap: break-word; font-size: 14px; }
+       th, td {  padding: 1.5px;  text-align: left; }
+       .tbody{ font-size: 14px;} .tp{ text-align: center;  }  .sb{ margin-left: 15%; text-align: left;}
+    .dtd{
+        margin-left:5px;
+    }
+    </style> 
+    <div class="tbody">
+    
+    <div class="reference">
+        <div class="leftref"> <span> टिप्पणी न‍ </span> </div> 
+        <div class="rightref"><span class="rightref">मिति: <%= project.agreement_date %> </span></div>
+    </div>
+    <div class="sub">
+        <div style="text-align: center; width: 99.5%;"> <u>टिप्पणी र आदेश</u></div> <br>
+        <span class="sb">विषय: &nbsp; <u>पेश्की भुक्तानी । </u></span>
+    </div>
+    <div>
+    <div>श्रीमान्, <br>
+        खुम्बु पासाङ ल्हामु गाउँपालिकाको  दोस्रो गाँउसभाको  .... औं अधिवेशनबाट देहाय अनुसारको योजना छनौट भई योजना कार्यान्वयन हुन 
+        यस कार्यालयमा सम्पर्कमा आएको हुँदा उक्त योजनाको विषयमा देहाय अनुसार पेश गरेको छु । </div>   
+        <span><b>लाभग्राही समुदाय/सँस्थाको नामः </b><u><%= tolebikas.name %></u></span> <br>
+        <span><b>ठेगानाः </b> <u> <%= tolebikas.office_address %></u></span> <br>
+        <span><b><u>लाभग्राही द्वारा सञ्चालित आयोजना सम्बन्धी विवरण</u></b></span>
+        <table width="100%">
+            <tr>
+                <td><div class="dtd">आयोजनाको नाम : </div></td> <td colspan="3"> <div class="dtd"><%= project.project_name %></div></td>
+            </tr>
+            <tr> <td><div class="dtd">आयोजना स्थलः</div></td> <td colspan="3"><div class="dtd"><%= project.project_address %></div></td></tr>
+            <tr> <td> <div class="dtd">उद्देश्यः &nbsp;</div> </td> <td colspan="3"><%= project.aim %></td></tr>
+            <tr> <td colspan="2"> <div class="dtd">आयोजना सम्झौता मितिः &nbsp;<%= project.agreement_date %></div> </td> <td colspan="2"> <div class="dtd">आयोजना शुरु मितिः <%= project.start_date %></div></td></tr>
+            <tr><td colspan="2"> <div class="dtd">लागत अनुमानः &nbsp;रु  <%= project.allocated_budget+project.beneficiary_contrib %> /- &nbsp;  &nbsp;</div> </td> <td colspan="2"> <div class="dtd">गाउँपालिकाको अनुदानः &nbsp;रु <%= project.allocated_budget %> /-  &nbsp;</div>  </td>
+            <tr><tr><td colspan="2"> <div class="dtd">जनश्रमदानः &nbsp;रु : <%= project.beneficiary_contrib %> /-  &nbsp;</div> </td> <td colspan="2">अन्य  </td></tr>
+            </table>
+    <br>
+    <span><u><b>किस्ता भुक्तानी</b></u></span> <br>
+    <p>
+        लाभान्वित समितिबाट पेश भएका कागजात र प्रमाणहरुका <%= tolebikas.name %> र खुम्बु पासाङल्हामु गाउँपालिका बीच &nbsp "<%= project.project_name %>" आयोजना कार्यान्वयनका लागि मिति &nbsp; <%= project.agreement_date %>  मा भएको सम्झौताको शर्त अनुसार लाभान्वित समितिबाट पेश भएका कागजात र प्रमाणहरु मनासिव देखिएकाले हाललाई तपशिल बमोजिम पेश्की
+    रकम निकाशा हुन निर्णयार्थ पेश गर्दछु । 
+    </p>
+    <table width="100%">
+        <tr>
+            <td> <div class="k"> किस्ताको किसिम</div></td>
+            <td> <div class="k"> किस्ता बापत भुक्तानी गर्नु पर्ने रकम </div></td>
+        </tr>
+        <tr>
+            <td> <div class="k"> प्रथम किस्ता/पेश्की </div></td>
+            <td> <div class="k"> <%= project.allocated_budget * 0.3 %></div> </td>
+        </tr>
+    </table>
+    
+    </div>
+    <div class="sgn">
+        <div class="l">
+            <span><b><u>पेश गर्ने</u></b></span> <br>
+            
+            <span> दस्तखतः </span> <br> <br> <br>
+            <span>नाम/थरः &nbsp; दिप कुमार बस्नेत</span> <br>
+             <span>पदः &nbsp; योजना शाखा प्रमुख</span> <br>
+            <span>सम्पर्क नं : &nbsp; ९८०१८४२३७२</span> <br>
+            <span> मितिः <%= project.agreement_date %> </span> <br>
+                    </div>
+        <div class="r">
+            <span><b><u>सदर गर्ने</u></b></span> <br>
+            
+            <span> दस्तखतः </span> <br> <br> <br>
+            <span>नाम/थरः &nbsp; </span> <br>
+             <span>पदः &nbsp; </span> <br>
+            <span>सम्पर्क नं : &nbsp;  </span> <br>
+            <span> मितिः </span> <br>
+            <span> कार्यालयको छापः</span>
+            </div>
+        <style> .k{ margin-left: 10px; margin-top:2px; margin-bottom: 2px;}
+            .sgn{
+                margin-top: 15px;
+                display: flex;
+                flex-direction: row;
+            }
+            .l{ margin-left: 10px;}  .r{ margin-left:25%;} .footer{ position: fixed;  bottom: 0;  width: 100%;}
+         .f{ text-align: center;}
+         @media print{
+   .noprint{
+       display:none;
+   }
+}
+         </style>
+    </div>
+    </div>
+    
+    <div class="footer">
+        <hr class="hh">
+        <p class="f"> E-mail: ito.khumbupasanglhamumun@gmail.com, Phone: 038590066 <br> website: www.khumbupasanglhamumun.gov.np </p>
+    </div>
+    
+    
+</div>
+   
+     <script type="text/javascript">
+         window.print(); 
+    </script>

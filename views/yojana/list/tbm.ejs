@@ -1,0 +1,95 @@
+
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <%- include('../../common/header')  %>
+  
+  </head>
+  <body>
+  
+  <div id="mySidenav" class="sidenav">
+    <%- include('../../common/nav')%>
+  </div>
+  
+  <div class="header">
+    <%- include('../../common/headerImg')  %>
+  </div>
+  
+  <div class="row">
+    <div class="col-3 col-s-3 menu">
+     <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;open</span> -->
+          <a href="/" style="font-size:30px;cursor:pointer"> &#9776;Home</a>
+    </div>
+  
+  <!-- de activated 
+    <div class="col-3 col-s-12">
+      <div class="aside">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav1()"> &#9776;open</span>
+        </div>
+    </div> -->
+  </div>
+  <div>
+   <Button><a href="/addTBRec/<%= tolebikas_id %>">Back to ToleBikas Dashboard..</a></Button>
+</div>
+  
+<div class="col" style="margin-left:2%">
+  <table class="tbltolebks">
+    <!-- name,ward_num,tole,boundary_east, boundary_west, boundary_north,
+ boundary_south,
+office_address, co_ord_x, co_ord_y, account_num, pan_num, reg_num-->
+  <tr>
+  <th class="h">S.N</th>
+  <th class="h">Name</th>
+  <th class="h">designation</th>
+  <th class="h">Citizenship No:</th>
+  <th class="h">Contact No:</th>
+  <th class="h"> Photo</th>
+  <th class="h">Citizenship</th>
+  <th class="h"> Edit info</th>
+  <th class="h">Edit Documents</th>
+  <th class="h"> Delete</th>
+ </tr>
+<% var i=0;
+data.forEach(function (e) { i++;  %>
+   <tr>
+  <td class="td1"><%= i %></td>
+  <td class="td2"><%= e.name %></td>
+  <td class="td3"><%= e.designation %></td>
+  <td class="td4"><%= e.ctz %></td>
+  <td class="td4"><%= e.contact %></td>
+  <td class="td5"><img src="/uploadTBmember/<%= e.photo %>" width="150px" height="120px"> </td>
+  <td class="td6"><img src="/uploadTBmember/<%= e.ctz_front %>" width="150px" height="120px"> </td>
+  <td class="td7">
+    <button onclick="window.location.href='/tbmEditForm/<%= e._id %>'; ">Edit info</button></td>
+    <td class="td7">
+    <button onclick="window.location.href='/tbmEditDocsForm/<%= e._id %>'; ">Edit Documents</button></td>
+    <td> <Button onclick="window.location.href='/delTBM/<%= e._id %>'; "> 
+    Delete</Button></td>
+  </tr>
+<% })%>
+
+</table>
+
+</div>
+
+  <br>
+  <br>
+  <br>
+  <div class="space"></div>
+  <style>
+    .space{
+      height:40px;
+    }
+    </style>
+  <div class="footer">
+    <%- include('../../common/footer')  %>
+  </div>
+   </body>
+  </html>
+  
+
+
+
+
+

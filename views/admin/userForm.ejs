@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include('../common/header') %>
+</head>
+<body>
+  <div id="mySidenav" class="sidenav">
+    <%- include('../common/nav') %>
+  </div>
+
+  <div class="header">
+    <%- include('../common/headerImg') %>
+  </div>
+
+  <div class="row">
+    <div class="col-3 col-s-3 menu">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;open</span>
+    </div>
+  </div>
+
+  <main class="admin-form-page">
+    <form class="admin-form" action="<%= action %>" method="post">
+      <h1><%= title %></h1>
+      <% if (message) { %>
+        <p class="admin-message"><%= message %></p>
+      <% } %>
+
+      <label for="firstname">First Name</label>
+      <input id="firstname" type="text" name="firstname" value="<%= user.firstname %>" required>
+
+      <label for="lastname">Last Name</label>
+      <input id="lastname" type="text" name="lastname" value="<%= user.lastname %>" required>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" value="<%= user.email %>" required>
+
+      <label for="password">Password<%= requirePassword ? '' : ' (leave blank to keep current)' %></label>
+      <input id="password" type="password" name="password" <%= requirePassword ? 'required' : '' %>>
+
+      <label for="role">Role</label>
+      <select id="role" name="role">
+        <% roles.forEach(function(role) { %>
+          <option value="<%= role %>" <%= user.role === role ? 'selected' : '' %>><%= role %></option>
+        <% }) %>
+      </select>
+
+      <label class="checkbox-label">
+        <input type="checkbox" name="is_active" <%= user.is_active ? 'checked' : '' %>>
+        Active
+      </label>
+
+      <div class="form-actions">
+        <button type="submit">Save</button>
+        <a href="/users">Cancel</a>
+      </div>
+    </form>
+  </main>
+
+  <div class="footer">
+    <%- include('../common/footer') %>
+  </div>
+
+  <style>
+    .admin-form-page { max-width: 560px; margin: 30px auto 80px; padding: 0 16px; }
+    .admin-form { border: 1px solid #d8dee4; padding: 24px; background: #fff; border-radius: 6px; }
+    .admin-form h1 { margin: 0 0 18px; font-size: 28px; }
+    .admin-form label { display: block; margin: 14px 0 6px; font-weight: 700; }
+    .admin-form input, .admin-form select { width: 100%; padding: 12px; border: 1px solid #b8c2cc; border-radius: 4px; box-sizing: border-box; }
+    .checkbox-label { display: flex !important; align-items: center; gap: 8px; }
+    .checkbox-label input { width: auto; }
+    .form-actions { display: flex; align-items: center; gap: 14px; margin-top: 18px; }
+    .form-actions button { padding: 10px 16px; border: 0; border-radius: 4px; background: #1f7a4d; color: #fff; cursor: pointer; }
+    .admin-message { padding: 10px 12px; background: #fff6d6; border: 1px solid #f1d37b; border-radius: 4px; }
+  </style>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<div class="noprint">
+    <button onclick="window.location.href='/projectIndex/<%= project._id %>'; ">Return Back to Project Dashboard.</button>
+</div>
+<div class="head">
+    <div class="logoleft"><img width="83" height="75" src="http://103.69.125.247:3000/img/npl.jpg" alt=""></div>
+   <div class="gapaname"><span  class="gname">खुम्बु पासाङल्हामु गाउँपालिका</span><br>
+    <span  class="gname">Khumbu Pasanglhamu Rural Municipality</span> <br>
+    <span  class="gapaaddr">गाउँ कार्यपालिकाको कार्यालय, चौ‍रीखर्क,सोलुखुम्बु, कोशी प्रदेश,नेपाल</span><br>
+        <span class="gapaeng">Office of the Rural Municipal Executive, Chaurikharka,Solukhumbu, Koshi Province, Nepal </span>
+ </div>
+<div class="logoright"><img width="83" height="75" src="http://103.69.125.247:3000/img/khumbu.png"></div>
+</div>
+<hr class="hh">
+<style>
+   @media print{
+   .noprint{
+       display:none;
+   }
+}
+    .head{
+        display: flex; flex-direction: row;
+     justify-content: center; align-items: center;
+    }  .gname{ font-size: 22px; }
+    .logoleft{width: 12%; align-items: right; display: flex;
+    justify-content: center;
+    align-items: center;} .logoright{width: 12%; display: flex;
+    justify-content: center;
+    align-items: center; }
+     .gapaname{color: red; font-size: 16px; margin-left: 8px; text-align: center; width: 76%;}
+    .gapaaddr{
+        font-size:14px; margin-left: 8px; color: black;
+        font-weight: bold; align-content: center; text-align: center;
+    }   .gapaeng{ color: black; font-size: 14px; align-content: center; align-items: center; text-align: center; margin-left: 8px; }
+    hr.hh {
+  border: 1px solid red; margin-right: 40px;
+}
+.reference{
+    display: flex; flex-direction: row;
+}  .leftref{ width:45%;}
+.rightref{ width: 40%; text-align: right;}  .tbody{ margin-left: 15px;}
+.txt-center{text-align: center;}
+table, th, td { border: 0.5px solid black!important;  border-collapse: collapse; word-wrap: break-word; font-size: 14px; }
+   th, td {  padding: 1.5px;  text-align: left; }
+   .tbody{ font-size: 14px;} .tp{ text-align: center;  }  .sb{ margin-left: 15%; text-align: left;}
+.dtd{
+    margin-left:5px;
+}
+</style> 
+<div class="tbody">
+
+<div class="reference">
+    <div class="leftref"> <span> टिप्पणी न‍ </span> </div> 
+    <div class="rightref"><span class="rightref">मिति: <%= project.agreement_date %> </span></div>
+</div>
+<div> च. न‍ :</div>
+<br>
+<div class="sub">
+    <div style="text-align: left; width: 99.5%;"> <span>श्री &nbsp; <%= tolebikas.name %>, <br>
+    <%= tolebikas.office_address %>
+    </span></div> <br>
+    <span class="sb">विषय: &nbsp; <u>कार्यादेश दिईएको ।</u></span> <br>
+
+</div>
+<div>
+<div>
+    <p> खुम्बु पासाङल्हामु गाउँपालिकाको आ. व ०८०/ ८१ को स्वीकृत बजेट तथा कार्यक्रम अनुसार वडा स्तरीय  योजना "<%= project.project_name %>"
+    संचालनका लागी <%= tolebikas.name %> र खुम्बु पासाङल्हामु गाउँकार्यपालिकाको कार्यालय बीच मिति: <%= project.agreement_date %> मा
+    भएको सम्झौता अनुसार तोकिएको समयमा यस योजना सम्पन्न गर्न यो कार्यादेश दिईएको छ । उक्त योजना अनुसार प्राविधिकको सुपरीवेक्षण तथा रेखदेखमा
+     उक्त योजनाको लागत अनुमान ड्रइङ डिजाईन नियमानुसार योजना संचालन गर्नहुन पनि जानकारी गराईन्छ । </p>
+    </div>   
+    
+
+</div>
+<div class="sgn">
+    <div class="l">
+        </div>
+    <div class="r">
+        <span> दस्तखतः </span> <br> <br>
+        <span>कार्यादेश दिने अधिकृतको नाम/थरः &nbsp; </span> <br>
+         <span>पदः &nbsp; </span> <br>
+        </div>
+    <style> .k{ margin-left: 10px; margin-top:2px; margin-bottom: 2px;}
+        .sgn{
+            margin-top: 15px;
+            display: flex;
+            flex-direction: row;
+        }
+        .l{ margin-left: 10px; width: 20%; }  .r{ margin-left:25%;} .footer{ position: fixed;  bottom: 0;  width: 100%;}
+     .f{ text-align: center;}
+     </style>
+</div>
+<div>
+    <span> <u> <b>बोधार्थ</b></u></span> <br>
+    <span>आर्थिक प्रशासन शाखा:- जानकारीका लागि <br>
+        श्री प्राविधिक शाखा, <br>
+        श्री  ....  नं वडा कार्यालय-  जानकारीका लागि</span>
+</div>
+
+
+
+</div>
+<div class="footer">
+    <hr class="hh">
+    <p class="f"> E-mail: ito.khumbupasanglhamumun@gmail.com, Phone: 038590066 <br> website: www.khumbupasanglhamumun.gov.np </p>
+</div>
+
+<script type="text/javascript">
+    window.print(); 
+</script>

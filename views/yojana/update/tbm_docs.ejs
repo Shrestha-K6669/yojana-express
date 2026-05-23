@@ -1,0 +1,43 @@
+<p style="color: red">सबै फर्म अनिवार्य भर्नुपर्नेछ ।</p>
+<form action="/updateTBMDocs" method="post" enctype="multipart/form-data">
+    <div class="col">
+        <div class="row">
+            <input type="hidden" name="id" value="<%= data._id %>">
+            <input type="hidden" name="tolebikas_id" value="<%= data.tolebikas_id%>">
+        </div>
+        <div class="row">
+        <div class="left"><label for="citizenshpFile">Citizenship cert(नागरिकता प्रमाणपत्रः अगाडिपट्टिको)</label></div>
+        <div class="forminput">
+            Previous:: <img src="/uploadTBmember/<%= data.ctz_front %>" width="150px" height="120px">
+         <input type="file" class="input" name="ctz_front" id="ctz_front" required> </div>
+    </div>
+<div class="row"><div class="left"><label for="ctzback">Citizenship cert(नागरिकता प्रमाणपत्रः पछाडिपट्टिको)</label></div>
+<div class="forminput">
+Previous:: <img src="/uploadTBmember/<%= data.ctz_back %>" width="150px" height="120px">    
+<input type="file" class="input" name="ctz_back" id="ctz_back" required></div>
+</div>
+<div class="row">
+    <div class="left"><label for="photo">Photo(फोटो)</label></div>
+    <div class="forminput"> Previous:: <img src="/uploadTBmember/<%= data.photo %>" width="150px" height="120px">
+    <input type="file" class="input" name="photo" id="photo" required></div>
+</div>
+<div class="forminput"><button class="input" type="submit">+</button></div>
+    </div>
+</form>
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

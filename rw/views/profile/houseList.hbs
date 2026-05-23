@@ -1,0 +1,35 @@
+<div class="house_list">
+    <table>
+  <tr>
+    <th class="head">S.N</th>
+    <th class="head">Ward_Num</th>
+    <th class="head">House_no</th>
+    <th class="head">House Description</th>
+  </tr>
+  {{#each data}}
+  <tr>
+    <td class="sn">{{@index}}</td>
+    <td class="wn">{{ward_no}}</td>
+    <td class="hn">{{house_no}}</td>
+    <td class="hd">{{house_desc}}</td>
+  </tr>
+  {{/each}}
+</table>
+</div>
+<style>
+    .house_list{
+        width:70%;
+        margin-left:20%;
+    }
+    table {
+  width:100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+</style>

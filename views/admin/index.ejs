@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../common/header')%>
+</head>
+<body>
+    <div class="container">
+           <div class="header">
+            <%- include('../common/headerImg')  %>
+          </div>
+          Admin Panel 
+          <br>
+          <ul>
+            <li><a href="/users">Manage Users</a></li>
+            <li><a href="/lawTypeForm">Add Law Types</a></li>
+            <li> <a href="/lawForm"> Add Laws</a></li>
+            <li> <a href="/lawTypes">Law Types List</a></li>
+          </ul>
+          <form action="/logout" method="post">
+            <button type="submit">Logout</button>
+          </form>
+    </div>
+    <div class="footer">
+        <%- include('../common/footer')  %>
+      </div>
+</body>
+</html>

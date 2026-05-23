@@ -1,0 +1,33 @@
+<form action="" method="post">
+    <div class="col">
+        <input type="hidden" name="project_id" id="project_id">
+        <div class="row">
+            <div class="left"><label for="documentname">Document Name</label></div>
+            <div class="forminput"><input type="text" class="input" name="documentname" id="documentname"></div>
+        </div>
+        <div class="row">
+            <div class="left"><label for="doc">Document(कागजात)</label></div>
+            <div class="forminput"><input type="file" class="input" name="doc" id="doc"></div>
+        </div>
+        <div class="row">
+            <div class="forminput"><button class="input" type="submit">+</button></div>
+        </div>
+    </div>
+</form>
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include('../common/header') %>
+</head>
+<body>
+  <div id="mySidenav" class="sidenav">
+    <%- include('../common/nav') %>
+  </div>
+
+  <div class="header">
+    <%- include('../common/headerImg') %>
+  </div>
+
+  <div class="row">
+    <div class="col-3 col-s-3 menu">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;open</span>
+    </div>
+  </div>
+
+  <main class="auth-page">
+    <form class="auth-card" action="/login" method="post">
+      <h1>Login</h1>
+      <% if (message) { %>
+        <p class="auth-message"><%= message %></p>
+      <% } %>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" autocomplete="email" required>
+
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" autocomplete="current-password" required>
+
+      <button type="submit">Login</button>
+      <p class="auth-link">Need an account? <a href="/registerForm">Register</a></p>
+    </form>
+  </main>
+
+  <div class="footer">
+    <%- include('../common/footer') %>
+  </div>
+
+  <style>
+    .auth-page { max-width: 460px; margin: 30px auto 80px; padding: 0 16px; }
+    .auth-card { border: 1px solid #d8dee4; padding: 24px; background: #fff; border-radius: 6px; }
+    .auth-card h1 { margin: 0 0 18px; font-size: 28px; }
+    .auth-card label { display: block; margin: 14px 0 6px; font-weight: 700; }
+    .auth-card input { width: 100%; padding: 12px; border: 1px solid #b8c2cc; border-radius: 4px; box-sizing: border-box; }
+    .auth-card button { width: 100%; margin-top: 18px; padding: 12px; border: 0; border-radius: 4px; background: #1f7a4d; color: #fff; cursor: pointer; }
+    .auth-message { padding: 10px 12px; background: #fff6d6; border: 1px solid #f1d37b; border-radius: 4px; }
+    .auth-link { margin-bottom: 0; }
+  </style>
+</body>
+</html>

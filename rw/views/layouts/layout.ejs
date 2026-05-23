@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>KPLRM Digital Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link href='css/googleapisFont.css' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "RobotoDraft", "Roboto", sans-serif}
+.w3-bar-block .w3-bar-item {padding: 16px}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="script.js"></script>
+</head>
+<body>
+
+<!-- Side Navigation -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card" 
+style="z-index:3;width:320px;" id="mySidebar">
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom w3-large">
+      digital profile : Data Entry Server.</a>
+  <a href="javascript:void(0)"
+   onclick="w3_close()"
+    title="Close Sidemenu" 
+  class="w3-bar-item w3-button 
+  w3-hide-large w3-large">Close <i class="fa fa-remove"></i></a>
+  <a href="javascript:void(0)" 
+  class="w3-bar-item w3-button w3-dark-grey w3-button 
+  w3-hover-black w3-left-align" 
+  onclick="document.getElementById('idReln1').style.display='block'">profile Reln entry
+    <i class="w3-padding fa fa-pencil"></i></a>
+    <!-- -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-dark-grey 
+    w3-button w3-hover-black w3-left-align" 
+  onclick="document.getElementById('idHouseForm').style.display='block'">New House Entry 
+    <i class="w3-padding fa fa-pencil"></i></a>
+    <!-- -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button 
+    w3-dark-grey w3-button w3-hover-black w3-left-align" 
+  onclick="document.getElementById('idToleForm').style.display='block'">New Tole Entry 
+    <i class="w3-padding fa fa-pencil"></i></a>
+    <!-- -->
+    
+<a href="javascript:void(0)" class="w3-bar-item w3-button 
+    w3-dark-grey w3-button w3-hover-black w3-left-align" 
+  onclick="document.getElementById('idProfileForm').style.display='block'">New Profile Entry 
+    <i class="w3-padding fa fa-pencil"></i></a>
+
+    <!-- -->
+
+  <a id="myBtn" onclick="myFunc('Demo1')" href="javascript:void(0)"
+   class="w3-bar-item w3-button"><i class="fa fa-inbox w3-margin-right"></i> Lists.
+   <i class="fa fa-caret-down w3-margin-left"></i></a>
+  <div id="Demo1" class="w3-hide w3-animate-left">
+    <a class="w3-bar-item" href="#">link1</a>  
+    <a class="w3-bar-item" href="#">link1</a>
+    <a class="w3-bar-item" href="#">link1</a>   
+  </div>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-paper-plane w3-margin-right"></i>..</a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-hourglass-end w3-margin-right"></i>...</a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-trash w3-margin-right"></i>....</a>
+</nav>
+
+<!-- body here .-->
+<%- if(message) { %>
+<div class="message w3-input" style="margin-left:400px; text-color:red">
+    <p>Relation Code is: <%= message.code %></p>
+    <p> Reln desc is: <%= message.name %></p>
+</div>
+<% } %>
+<div>
+  <div id="idReln1" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-padding w3-red">
+       <span onclick="document.getElementById('idReln1').style.display='none'"
+       class="w3-button w3-red w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+      <h2>Profile entry form</h2>
+    </div>
+    
+<form action="/addReln" method="post">
+      <div class="w3-panel">
+      <label>Relation Code</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="number" name="reln_code">
+      <label>Relation Desc</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="name">
+      <input type="submit" value="+">
+      
+    </div>
+    </form>
+  </div>
+</div>
+<!-- 
+  house form
+-->
+<div id="idHouseForm" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-padding w3-red">
+       <span onclick="document.getElementById('idHouseForm').style.display='none'"
+       class="w3-button w3-red w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+      <h2>House Num Entry form</h2>
+    </div>
+    
+<form action="/addHouse" method="post">
+      <div class="w3-panel">
+      <label>Ward No:</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="number" name="ward_no">
+      <label>House No:</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="number" name="house_no">
+      <label>House Desc</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="house_desc">
+      <input type="submit" value="+">
+      
+    </div>
+    </form>
+  </div>
+</div>
+<!-- -->
+<div id="idToleForm" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-padding w3-red">
+       <span onclick="document.getElementById('idToleForm').style.display='none'"
+       class="w3-button w3-red w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+      <h2>House Num Entry form</h2>
+    </div>
+    
+<form action="/addTole" method="post">
+      <div class="w3-panel">
+      <label>Ward No:</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="number" name="ward_no">
+      <label>Tole Name:</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="tole_name">
+      <label>Tole Desc</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="tole_desc">
+      <input type="submit" value="+">
+      
+    </div>
+    </form>
+  </div>
+</div>
+<!-- -->
+
+<div id="idProfileForm" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-padding w3-red">
+       <span onclick="document.getElementById('idProfileForm').style.display='none'"
+       class="w3-button w3-red w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+      <h2>profile Entry form</h2>
+    </div>
+  <!-- 
+<form id="profileForm" action="/addProfile" method="post"> -->
+<form id="profileForm"></form>
+      <div class="w3-panel">
+        <label>Relation:</label>
+      <select class="w3-input w3-border w3-margin-bottom" name="reln" id="reln">
+        <option>----</option>
+        <%- if(relation){ %>
+  <% relation.forEach(function(){ %>
+  <option class="w3-input w3-border w3-margin-bottom" value="<%= _id%>"><%-reln_code%>||<%-name%></option>
+  <% )} %>
+  <%- } %>
+</select>
+<br>
+      <label>Tole Name:</label>
+      <select class="w3-input w3-border w3-margin-bottom" name="tole" id="profile_tole">
+        <option>----</option>
+        <%- if(tole) { %>
+  <% tole.forEach(function(el) { %>
+  <option class="w3-input w3-border w3-margin-bottom" value="<%= el._id  %>"><%= el.tole_name %></option>
+  <% )} %>
+  <% } %>
+</select>
+<br>
+  <label>House num:</label>
+      <select class="w3-input w3-border w3-margin-bottom" name="house_num" id="profile_housenum">
+        <option>----</option>
+        <%- if(house_num){ %>
+  <% house_num.forEach(function(el) %>
+  <option class="w3-input w3-border w3-margin-bottom" value="<%= el._id %>"><%= el.house_no %></option>
+  <% )} %>
+  <% } %>
+</select>
+      <br>
+      <label>Name English</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="name_eng" id="name_eng">
+      <label>Name Nepali</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="name_nep" id="name_nep">
+       <label> Gender:</label>
+      <select class="w3-input w3-border w3-margin-bottom" name="gender" id="gender" id="gender">
+        <option>----</option>
+       <option value="Male">Male</option>
+       <option value="Female">Female</option>
+       <option value="Others">Others</option>
+  </select>
+  <br>
+  <label>Date of Birth</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="dob" id="dob">
+      <label>Citizenship Number:</label>
+      <input class="w3-input w3-border w3-margin-bottom" type="text" name="ctz_no" id="ctz_no">
+     <input type="submit" value="+"> 
+      
+    </div>
+    <!--
+    </form> -->
+  </div>
+</div>
+<script>
+  /*
+  $(document).ready(function(){
+ var reln=$('#reln');
+var h_id=$('#profile_housenum');
+var t_id=$('#profile_tole');
+var name_eng=$('#name_eng');
+var name_nep=$('#name_nep');
+var gender=$('#gender');
+var dob=$('#dob');
+var ctz_no=$('#ctz_no');
+
+var data1={
+  reln:reln.val(),
+  house_num:h_id.val(),
+  tole:t_id.val(),
+  name_eng:name_eng.val(),
+  name_nep:name_nep.val(),
+  gender:gender.val(),
+  dob:dob.val(),
+  ctz_no:ctz_no.val()
+}
+$("#profileForm").submit(function(e) {
+    e.preventDefault();
+      $.ajax({
+          type: "POST",
+          url: "/addProfile",
+          data: data1,
+          success: function(data) {
+            // do something with the data you received}
+            console.log(data)
+          },
+          error:function(){
+            console.log("error in methods.")
+          }
+      });
+  })
+});
+*/
+
+  /*
+  $("#profileForm").submit(function(e) {
+    e.preventDefault();
+      $.ajax({
+          type: "POST",
+          url: "http://localhost:3005/addProfile",
+          data: {
+            r_id: document.getElementById('reln'),
+            h_id: document.getElementById('profile_housenum'),
+            t_id: document.getElementById('profile_tole'),
+            name_eng: document.getElementById('name_eng'),
+            name_nep: document.getElementById('name_nep'),            
+            gender:document.getElementById('gender'),
+            dob:document.getElementById('dob'),
+            ctz_no:document.getElementById('ctz_no')
+          },
+          success: function(data) {
+            // do something with the data you received}
+          }
+      });
+  })
+  */
+function submitProfile(){
+    event.preventDefault()       
+  const data={
+  reln:document.getElementById('reln').value,
+  house_num:document.getElementById('profile_housenum').value,
+  tole:document.getElementById('profile_tole').value,
+  name_eng:document.getElementById('name_eng').value,
+  name_nep:document.getElementById('name_nep').value,
+  gender:document.getElementById('gender').value,
+  dob:document.getElementById('dob').value,
+  ctz_no:document.getElementById('ctz_no').value
+  }
+  axios.post('/addProfile', data)
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+  
+</script>
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("p").hide();
+  });
+  $("#show").click(function(){
+    $("p").show();
+  });
+});
+</script>
+<p>If you click on the "Hide" button, I will disappear............</p>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+<!--  -->
+    <%- body %>
+</div>
+<style>
+  .message{
+    width:60%;
+    margin-left:25%;
+  }
+</style>
+<script>
+var openInbox = document.getElementById("myBtn");
+openInbox.click();
+
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+function myFunc(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show"; 
+    x.previousElementSibling.className += " w3-red";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-red", "");
+  }
+}
+
+
+</script>
+
+</body>
+</html> 

@@ -1,0 +1,66 @@
+<form action="/updateProject" method="post">
+    <div class="col">
+        <input type="hidden" name="tb_id" value="<%= tb_id %>">
+        <input type="hidden" name="_id" value="<%= data._id %>">
+        <div class="row">
+            <div class="left"><label for="Project Level"> Project Level(योजना स्तर)</label></div>
+            <div class="forminput"><select name="project_level" class="input" id="project_level">
+                <option value="ward">वडास्तरीय</option>
+                <option value="rm">गाउँपालिकास्तरीय</option>
+            </select></div>
+            <p> Project_leve: (previous):: <%= data.project_level %></p>
+        </div>
+        <div class="row">
+            <div class="left"><label for="project name"> Project Name(योजनाको नाम):</label></div>
+            <div class="forminput"><input type="text" class="input" name="project_name" id="project_name" value="<%= data.project_name %>" ></div>
+        </div>
+         <div class="row">
+            <div class="left"><label for="allocated budget">Allocated Budget(छुट्याएको रकम):</label></div>
+            <div class="forminput"><input type="number" class="input" step="0.01" name="allocated_budget" id="allocated_budget" value="<%= data.allocated_budget %>" ></div>
+        </div>
+        <div class="row">
+            <div class="left"> <label for="beneficiary_contrib">Beneficiary Contribution(लाभग्राही श्रमदान):</label></div>
+            <div class="forminput"><input type="number" class="input" step="0.01" name="beneficiary_contrib" id="beneficiary_contrib" value="<%= data.beneficiary_contrib %>"></div>
+        </div>
+<div class="row">
+    <div class="left"> <label for="project_address"> Project Address(योजना स्थल)</label></div>
+    <div class="forminput"><input type="text" class="input" name="project_address" value="<%= data.project_address %>" id="project_address"></div>
+</div>
+<div class="row">
+    <div class="left"> <label for="aim"> Project Aim(योजना को उद्देश्य)</label></div>
+    <div class="forminput"><input type="text" class="input" name="aim" value="<%= data.aim %>" id="aim"></div>
+</div>
+<div class="row">
+    <div class="left"> <label for="start_date"> Starting Date: (योजना शुरु मितिः )</label></div>
+    <div class="forminput"><input type="text" class="input" name="start_date" value="<%= data.start_date %>" id="start_date"></div>
+</div>
+<div class="row">
+    <div class="left"> <label for="end_date"> End Date: (योजना समापन मितिः )</label></div>
+    <div class="forminput"><input type="text" class="input" name="end_date" value="<%= data.end_date %>" id="end_date"></div>
+</div>
+<div class="row">
+    <div class="left"> <label for="end_date"> Agreement Date: (योजना सम्झौता मितिः )</label></div>
+    <div class="forminput"><input type="text" class="input" name="agreement_date" value="<%= data.agreement_date %>" id="agreement_date"></div>
+</div>
+<div class="row">
+    <div class="forminput"><button type="submit" class="input">+</button></div>
+</div>
+    </div>
+</form>
+<style>
+    .col{
+        display: flex;flex-direction: column;border-style: solid;border-color: lightblue;width:75%;
+    }
+    .row{
+        display: flex;flex-direction: row;padding: 5px;
+    }
+    .left{
+        width:25%;margin-left: 10px; margin-right: 8px;
+    }
+    .forminput{
+        width:45%;
+    }
+    .input{
+        width:85%;height: 40px;padding:4px;
+    }
+</style>
