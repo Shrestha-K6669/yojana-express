@@ -4,12 +4,11 @@ const router = express.Router();
 //const app=express()
 const upload=require('../controllers/fileUploader')
 const lawController=require("../controllers/lawController")
-const { requireAuth, authorizeRoles }=require('../middleware/auth')
-const adminOnly=[requireAuth, authorizeRoles('admin')]
+const { requireAuth }=require('../middleware/auth')
 
 //add
-router.post('/addLawType',adminOnly,lawController.addKanunType)
-router.post('/addLaw',adminOnly,upload.upload1,lawController.addLaw)
+router.post('/addLawType',requireAuth,lawController.addKanunType)
+router.post('/addLaw',requireAuth,upload.upload1,lawController.addLaw)
 //router.post("/addProfile",upload.uploadFiles,profileController.profileEntry);
 
 
@@ -19,20 +18,20 @@ router.post('/addLaw',adminOnly,upload.upload1,lawController.addLaw)
 //get
 router.get('/',lawController.indexHome)
 router.get('/laws',requireAuth,lawController.getLaws)
-router.get('/lawTypeForm',adminOnly,lawController.getLawTypeForm)
-router.get('/lawForm', adminOnly, lawController.getLawForm)
-router.get('/lawEditForm/:id',adminOnly,lawController.getLawEditForm)
+router.get('/lawTypeForm',requireAuth,lawController.getLawTypeForm)
+router.get('/lawForm', requireAuth, lawController.getLawForm)
+router.get('/lawEditForm/:id',requireAuth,lawController.getLawEditForm)
 router.post('/viewFile',requireAuth,lawController.viewFile)
 
 router.post('/lawsPage',requireAuth,lawController.getPageLaws)
 
-router.get('/lawTypes',adminOnly,lawController.getLawTypes)
+router.get('/lawTypes',requireAuth,lawController.getLawTypes)
 
 //update law name
-router.post('/updateLaw',adminOnly,lawController.updateLawName)
+router.post('/updateLaw',requireAuth,lawController.updateLawName)
 //delete
-router.post('/deleteKanun',adminOnly,lawController.deleteLaw)
-router.get('/deleteLawType/:id',adminOnly,lawController.deleteLawType)
+router.post('/deleteKanun',requireAuth,lawController.deleteLaw)
+router.get('/deleteLawType/:id',requireAuth,lawController.deleteLawType)
 /*
 for laws access to public
 */
