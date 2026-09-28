@@ -6,7 +6,7 @@ var Sequelize=require('sequelize')
 var sequelize=new Sequelize(
     process.env.DB_NAME || 'revenue',
     process.env.DB_USER || 'root',
-    process.env.DB_PASSWORD,
+    "Admin@mysql2026@#$%2k1",
 {
     host:'localhost',
     dialect:'mysql',

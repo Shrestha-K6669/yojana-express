@@ -4,6 +4,10 @@ const Sequelize=require('sequelize')
 const { init } = require('express/lib/application')
 const tbproj=initModels(sequelize).tbproj
 const budget_project=initModels(sequelize).budget_project
+const proj_beneficiary=initModels(sequelize).proj_beneficiary
+const project_bittiy=initModels(sequelize).project_bittiy
+const project_docs=initModels(sequelize).project_docs
+const project_schedule=initModels(sequelize).project_schedule
 const uuid=require('./uuidcode')
 const u= require('uuid')
 
@@ -86,10 +90,15 @@ exports.addtbproj=async(req,res)=>{
         exports.deleteProject= async(req,res)=>{
           try {
             const {id, tb_id} = req.params;
-           await budget_project.destroy({where:{proj_id:id}})
-          await tbproj.destroy({where:{_id}}).then(async s=>{
-          res.redirect(`/projects/${tb_id}`)          
-        }).catch(er=>{console.log(er)})
+            await sequelize.transaction(async (transaction)=>{
+              await budget_project.destroy({where:{proj_id:id}, transaction})
+              await proj_beneficiary.destroy({where:{proj_id:id}, transaction})
+              await project_bittiy.destroy({where:{project_id:id}, transaction})
+              await project_docs.destroy({where:{project_id:id}, transaction})
+              await project_schedule.destroy({where:{project_id:id}, transaction})
+              await tbproj.destroy({where:{_id:id}, transaction})
+            })
+            res.redirect(`/projects/${tb_id}`)
           } catch (error) {
             res.send(error)
           }

@@ -30,6 +30,7 @@ router.post('/tolebikas',yController.postPageTB)
 router.get('/tbEditForm/:id',yController.getTBEditForm)
 router.post('/updateTB',yController.editTolebikas)
 //delete tb
+//chg
 router.post('/deleteTB',yController.deleteTB)
 
 //tolebikas info
