@@ -1,98 +1,14 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0
-">
-
-<!-- 
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
--->
-<style>
-    
-* { box-sizing: border-box; }
-.row::after { content: ""; clear: both;  display: table;} [class*="col-"] { float: left; padding: 15px; }
-html { font-family: "Lucida Sans", sans-serif; } .header { background-color: #E7EAED; color: #ffffff; padding: 15px; width:100%; height: auto;
-}
-.header-img{  margin-left: 42%; }
-
-.menu ul { list-style-type: none; margin: 0; padding: 0; }
-.menu li { padding: 8px; margin-bottom: 7px; background-color: #33b5e5;color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-.menu li:hover {  background-color: #0099cc; }
-.aside {  padding: 15px; text-align: center; font-size: 14px; }
-.footer {  background-color: #E7EAED; color: #ffffff; text-align: center;font-size: 12px; padding: 15px;
-}
-/* For mobile phones: */
-[class*="col-"] {  width: 100%; }
-@media only screen and (min-width: 600px) {
-  /* For tablets: */
-  .col-s-1 {width: 8.33%;} .col-s-2 { width: 16.66%; } .col-s-3 {width: 25%;} .col-s-4 {width: 33.33%;} .col-s-5 {width: 41.66%;} .col-s-6 {width: 50%;}  .col-s-7 {width: 58.33%;} .col-s-8 {width: 66.66%;} .col-s-9 {width: 75%;} .col-s-10 {width: 83.33%;} .col-s-11 {width: 91.66%;} .col-s-12 {width: 100%;}
-}
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .col-1 {width: 8.33%;} .col-2 {width: 16.66%;} .col-3 {width: 25%;} .col-4 {width: 33.33%;}  .col-5 {width: 41.66%;}  .col-6 {width: 50%;} .col-7 {width: 58.33%;} .col-8 {width: 66.66%;}  .col-9 {width: 75%;} .col-10 {width: 83.33%;} .col-11 {width: 91.66%;} .col-12 {width: 100%;}
-}
-.sidenav {  height: 60%; width: 0; position: fixed; z-index: 1; top: 100px; left: 10; background-color: lightblue; overflow-x: hidden; transition: 0.5s; padding-top: 60px; border-radius: 8px;
-}
-.sidenav a {  padding: 8px 8px 8px 32px; text-decoration: none; font-size: 25px;color: #ffffff; display: block; transition: 0.3s;
-}
-.sidenav a:hover { color: #f1f1f1; }
-.sidenav .closebtn { position: absolute; top: 0px; right: 25px; font-size: 36px; margin-left: 50px; color:lightcoral }
-/* */
-.sidenav1 { position: fixed;  height:60%; width:0; z-index: 1; top: 125px; right: 55px; background-color: lightblue; overflow-x: hidden; transition: 0.5s; padding-top: 60px; border-radius: 8px;
-}
-.sidenav1 a {  padding: 8px 8px 8px 32px; text-decoration: none; font-size: 25px; color: #ffffff; display: block;transition: 0.3s;
-}
-.sidenav1 a:hover {  color: #f1f1f1; }
-.sidenav1 .closebtn { position: relative;top: 0px; right: 25px; font-size: 36px; margin-left: 50px;
-}
-/* */
-@media screen and (max-height: 450px) {  .sidenav {padding-top: 15px;} .sidenav a {font-size: 18px;}
-}
-.mid{ width:85%; }
-.d1{
-  height:280px;  background-color: #ABD0BC; margin:8px;  padding:15px; border-radius: 9px; 
-}
-.d2{
-  height:280px;overflow-wrap: break-word!important; background-color: #ABD0BC; margin:8px; padding:15px;border-radius: 9px;
-}
-.btn-prev{width:180px;} .btn-next{width:80px;} .logo_div{  width: 90%; background-color: skyblue; height:30px;}
-.closebtn1{ color:lightcoral !important; }
-.footer {
-   position: fixed; left: 0;  bottom: 0;  width: 100%;
-   background-color:lightskyblue; color: white; text-align: center;
-} .header-Text{
-  width:100%;
-  text-align: center;
-  color:#0099cc;
-} .body{overflow-wrap: break-word;}
-
-    </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
 
 <style>
-    /* .td1{width:3%;} .td2 .td3 .td4 .td5 .td6{width:16%;} .td7{width:8%} .td8{ width:8%} */
-     @media screen and (min-width: 600px) {   table {   width: 75%;} }
-   @media screen and (min-width: 800px) {  table {  width: 90%;} }
-   
-   /* if the browser window is at least 1000px-s wide: */
-   @media screen and (min-width: 1000px) {  table {  width: 100%;} }
-   
-   table, th, td {
-     border: 1px solid black!important;  border-collapse: collapse; word-wrap: break-word;
-   }
-   th, td {  padding: 1.5px;  text-align: left; }
-  
-   .pagination {  display: inline-block;}
-   
-   .pagination a { color: black;  float: left;  padding: 8px 16px;   text-decoration: none;
-   }
-   
-   .pagination a.active {
-     background-color: #4CAF50;   color: white;
-   }
-   
-   .pagination a:hover:not(.active) {background-color: #ddd;}
-   .page-row{
-     display: flex;
-     flex-direction: row;
-   }
-   </style>
+  body {
+    margin: 0;
+    background: linear-gradient(180deg, #f3f7fb 0%, #edf6f2 100%);
+    color: #17324d;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+  }
+</style>

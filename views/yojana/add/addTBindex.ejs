@@ -69,7 +69,16 @@
 <td><div class="ch">
   <button onclick="window.location.href='/addProjform/<%= tolebikas_id %>' ;">Add Project Info</button>
 </div></td>
-<td> ...............</td>
+<td>
+  <div class="ch">
+    <form action="/importTBM" method="post" enctype="multipart/form-data" class="excel-upload-form">
+      <label for="excelFile">Upload Excel template</label>
+      <input type="file" name="excelFile" id="excelFile" accept=".xlsx,.xls,.csv" required>
+      <button type="submit">Import Members</button>
+    </form>
+    <a class="template-link" href="/download-tbmember-template">Download Template</a>
+  </div>
+</td>
     </tr>
 </table>
     
@@ -128,6 +137,26 @@
     }
     .manual{
       color:blue;
+    }
+    .excel-upload-form {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-width: 260px;
+      font-size: 14px;
+    }
+    .excel-upload-form input,
+    .excel-upload-form button {
+      padding: 6px;
+      font-size: 14px;
+    }
+    .template-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 14px;
+      text-decoration: none;
+      color: #0a3d62;
+      font-weight: bold;
     }
    </style>
    </div>

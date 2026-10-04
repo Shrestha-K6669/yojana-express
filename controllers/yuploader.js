@@ -70,6 +70,28 @@ storage:storageTBmember,
 limits:{fieldSize: 20 * 1024 * 1024},
 }).fields([{name:"photo"},{name:"ctz_front"},{name:"ctz_back"}])
 
+exports.uploadExcel=multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'public/excel')
+    },
+    filename: function (req, file, cb) {
+      cb(null, 'uploaded-' + Date.now() + path.extname(file.originalname).toLowerCase())
+    }
+  }),
+  limits:{fieldSize: 20 * 1024 * 1024},
+  fileFilter: (req, file, cb) => {
+    const allowedExt = /xlsx|xls|csv/;
+    const allowedMime = /sheet|excel|csv|vnd\.openxmlformats-officedocument\.spreadsheetml\.sheet|application\/vnd\.ms-excel/;
+    const ext = path.extname(file.originalname).toLowerCase();
+    if (allowedExt.test(ext) || allowedMime.test(file.mimetype)) {
+      cb(null, true)
+    } else {
+      cb(new Error('Only Excel files (.xlsx, .xls, .csv) are allowed'))
+    }
+  }
+}).single('excelFile')
+
 exports.uploadProjDoc=multer({
   storage:storageProjectDocs,
   limits:{fieldSize: 20 * 1024 * 1024},

@@ -41,6 +41,8 @@ router.post('/addTBMember',upload.uploadtbmember,tbMemberController.addToleBikas
 router.get('/tbm/:id', tbMemberController.getTBM)
 //import members of lavgrahi 
 router.get('/importTBM',tbMemberController.readTBMember)
+router.post('/importTBM', upload.uploadExcel, tbMemberController.readTBMember)
+router.get('/download-tbmember-template', tbMemberController.downloadTBMemberTemplate)
 //tbmEditForm
 router.get('/tbmEditForm/:id',tbMemberController.getTBMEditForm)
 router.post('/updateTBM', tbMemberController.updateTBM)
@@ -66,6 +68,8 @@ router.post('/updateProject', tbProjController.updateProject)
 
 //budget
 router.get('/import-budget',budgetController.readBudget)
+router.post('/import-budget', upload.uploadExcel, budgetController.readBudget)
+router.get('/download-budget-template', budgetController.downloadBudgetTemplate)
 router.get('/deleteAllBudget',budgetController.deleteAllBudgetItem)
 router.get('/bk-form',budgetController.getBudgetForm)
 router.get('/budgets',budgetController.getAllBudget)

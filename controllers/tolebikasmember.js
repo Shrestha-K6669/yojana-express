@@ -15,20 +15,35 @@ const read_budget=require('xlsx')
 
 exports.readTBMember=(req,res)=>{
   console.log("inside tbm import")
-  const pathName1=path.resolve(`${_baseDir}/public/excel/tbm.xlsx`)
+  const uploadedFile = req.file && req.file.path ? req.file.path : null
+  const pathName1 = uploadedFile
+      ? path.resolve(`${_baseDir}/${uploadedFile}`)
+      : path.resolve(`${_baseDir}/public/excel/tbm.xlsx`)
+
   console.log(pathName1)
   const file = read_budget.readFile(pathName1)
-    const temp = read_budget.utils.sheet_to_json(
-    file.Sheets[file.SheetNames[0]])
-    tolebikasmember.bulkCreate(temp).then(s=>{
-      console.log(temp)
-      res.send(s)
-    }).catch(err=>{
-      res.send(err)
-    })
-    
-    //csole.log(temp)
-    
+  const temp = read_budget.utils.sheet_to_json(file.Sheets[file.SheetNames[0]])
+
+  tolebikasmember.bulkCreate(temp).then(s=>{
+    console.log(temp)
+    res.send(s)
+  }).catch(err=>{
+    res.send(err)
+  })
+}
+
+exports.downloadTBMemberTemplate=(req,res)=>{
+  const wb = read_budget.utils.book_new()
+  const ws = read_budget.utils.json_to_sheet([
+    { name: 'Sample Member Name', designation: 'सदस्य', address: 'Sample Address', ctz: '12345', email: 'sample@example.com', contact: '9800000000', tolebikas_id: 'sample-id', seq: 1 },
+    { name: 'Second Member Name', designation: 'अध्यक्ष', address: 'Second Address', ctz: '54321', email: 'sample2@example.com', contact: '9800000001', tolebikas_id: 'sample-id', seq: 2 }
+  ])
+  read_budget.utils.book_append_sheet(wb, ws, 'Members')
+
+  const buffer = read_budget.write(wb, { type: 'buffer', bookType: 'xlsx' })
+  res.setHeader('Content-Disposition', 'attachment; filename="tb-member-template.xlsx"')
+  res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+  res.send(buffer)
 }
 
 function checkFile(req){

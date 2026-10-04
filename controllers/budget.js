@@ -10,15 +10,33 @@ const u= require('uuid')
 const read_budget=require('xlsx')
 const path=require('path')
 exports.readBudget=(req,res)=>{
-  const pathName1=path.resolve(`${_baseDir}/public/excel/budget.xlsx`)
+  const uploadedFile = req.file && req.file.path ? req.file.path : null
+  const pathName1 = uploadedFile
+      ? path.resolve(`${_baseDir}/${uploadedFile}`)
+      : path.resolve(`${_baseDir}/public/excel/budget.xlsx`)
+
   const file = read_budget.readFile(pathName1)
-  const temp = read_budget.utils.sheet_to_json(
-    file.Sheets[file.SheetNames[0]])
-    budget_karykram.bulkCreate(temp).then(s=>{
-      res.send(s)
-    })
-    //console.log(temp)
-    
+  const temp = read_budget.utils.sheet_to_json(file.Sheets[file.SheetNames[0]])
+
+  budget_karykram.bulkCreate(temp).then(s=>{
+    res.redirect('/budgets')
+  }).catch(err=>{
+    res.send(err)
+  })
+}
+
+exports.downloadBudgetTemplate=(req,res)=>{
+  const wb = read_budget.utils.book_new()
+  const ws = read_budget.utils.json_to_sheet([
+    { name: 'Sample Budget Name', amount: 1000, description: 'Sample description' },
+    { name: 'Second Budget Name', amount: 2500, description: 'Second description' }
+  ])
+  read_budget.utils.book_append_sheet(wb, ws, 'Budget')
+
+  const buffer = read_budget.write(wb, { type: 'buffer', bookType: 'xlsx' })
+  res.setHeader('Content-Disposition', 'attachment; filename="budget-template.xlsx"')
+  res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+  res.send(buffer)
 }
 //destroy all records
 

@@ -1,64 +1,88 @@
 
-  <!DOCTYPE html>
-  <html>
-  <head>
-  <%- include('../common/header')  %>
-    </head>
-  <body>
-    <style>
-        .container{
-            width:100%;
-            height:1000px;
-        }
-    </style>
-    <div class="container">
-        
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include('../common/header') %>
+</head>
+<body>
   <div id="mySidenav" class="sidenav">
     <%- include('../common/nav') %>
-   </div>
-   
-   <div class="header">
-     <%- include('../common/headerImg')  %>
-   </div>
-   
-   <div class="row">
-     <div class="col-3 col-s-3 menu">
-       <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;open</span>
-     </div>
-   
-   <!-- de activated 
-     <div class="col-3 col-s-12">
-       <div class="aside">
-         <span style="font-size:30px;cursor:pointer" onclick="openNav1()"> &#9776;open</span>
-         </div>
-     </div> -->
-   </div>
-   <div class="col-6 col-ss-9">
-     <div class="mid"> <!-- for buttons in flex, -->
-       <div class="content">
-   <div class="d1">
-    <button onclick="window.location.href='/tolebikas';">लाभग्राही समूदायहरुको सूची</button>
-     <br><br>
-     <button onclick="window.location.href='/tbForm';"> Add Tole Bikas info</button>
-    </div>
-   <div class="d1"><p>.............</p></div>
-   </div>
- </div>
- 
-       
-     <div class="mid"> <!-- for buttons in flex, -->
-      <!-- div2 d2-->
-      <div style="width: 100%; height:20%;"></div>
- </div> 
-   </div>
-    </div>
-  <br>
-    <br><br><br>
-    <br><br><br>
-  <div class="footer">
-    <%- include('../common/footer')  %>
   </div>
-  
-  </body>
-  </html>
-  
+
+  <div class="header">
+    <%- include('../common/headerImg') %>
+  </div>
+
+  <div class="row">
+    <div class="col-3 col-s-3 menu">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;open</span>
+    </div>
+  </div>
+
+  <main class="dashboard-page">
+    <section class="dashboard-grid">
+      <article class="dashboard-card">
+        <h2>Tole Bikas</h2>
+        <p>Manage registered community organizations and member records.</p>
+        <button onclick="window.location.href='/tolebikas';">View List</button>
+        <button onclick="window.location.href='/tbForm';">Add Tole Bikas</button>
+      </article>
+
+      <article class="dashboard-card">
+        <h2>Budget & Programs</h2>
+        <p>Review and update budget planning items and project funding.</p>
+        <button onclick="window.location.href='/budgets';">Open Budget</button>
+      </article>
+
+      <article class="dashboard-card">
+        <h2>Reports</h2>
+        <p>Track activities, project documents, and program updates.</p>
+        <button onclick="window.location.href='/projects';">Project Overview</button>
+      </article>
+    </section>
+  </main>
+
+  <div class="footer">
+    <%- include('../common/footer') %>
+  </div>
+
+  <style>
+    .dashboard-page {
+      max-width: 1100px;
+      margin: 30px auto 80px;
+      padding: 0 16px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .dashboard-card {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #dfeaf4;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .dashboard-card h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: #123b66;
+    }
+
+    .dashboard-card p {
+      color: #4a627d;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .dashboard-card button {
+      width: 100%;
+      margin-top: 8px;
+    }
+  </style>
+</body>
+</html>
